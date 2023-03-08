@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 // 引入组件
 import Index from "@/pages/Index";
 import Articles from "@/pages/Articles";
+import Tags_Articles from "@/pages/Tags_Articles";
 import Article from "@/pages/Article";
 import Tags from "@/pages/Tags";
 import Categories from "@/pages/Categories";
@@ -30,6 +31,12 @@ var router = new VueRouter({
     {
       path: "/tags",
       component: Tags,
+      children: [
+        {
+          path: "/tags/:tag",
+          component: Tags_Articles,
+        },
+      ],
     },
     {
       path: "/categories",

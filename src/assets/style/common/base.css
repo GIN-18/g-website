@@ -1,5 +1,7 @@
 /* 引入normalize.css */
 @import "./normalize.css";
+/* 引入animate.css动画库 */
+@import "animate.css";
 
 /* 根元素颜色值 */
 :root {

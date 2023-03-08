@@ -2,6 +2,7 @@
   <div id="tags">
     <SingleTitle>所有标签</SingleTitle>
     <TagList></TagList>
+    <router-view></router-view>
   </div>
 </template>
 

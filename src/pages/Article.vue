@@ -22,7 +22,7 @@
           </svg>
         </template>
         <template v-slot:info>
-          {{ new Date(updated * 1000).toString().slice(0, 24) }}
+          {{ postDate }}
         </template>
       </MetaLineItem>
       <MetaLineItem>
@@ -98,11 +98,19 @@ export default {
       content: "",
     };
   },
+  computed: {
+    postDate() {
+      return new Date(this.updated * 1000).toString().slice(0, 24);
+    },
+  },
   created() {
     axios
-      .get(
-        `https://website.cms.gin-18.top/api/article/getArticleById?id=${this.$route.params.id}&views=${this.$route.params.views}`
-      )
+      .get("https://website.cms.gin-18.top/api/article/getArticleById", {
+        params: {
+          id: this.$route.params.id,
+          views: this.$route.params.views,
+        },
+      })
       .then((res) => {
         var { title, tag, updated, views, content } = res.data.data;
         this.title = title;
@@ -122,6 +130,8 @@ export default {
 
 #article-title {
   margin: 32px 0 8px;
+  animation: swing;
+  animation-duration: 2s;
 }
 
 .table-of-contents ::marker {
