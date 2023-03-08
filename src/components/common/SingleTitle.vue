@@ -1,0 +1,20 @@
+<template>
+  <h2 class="single-title">
+    <slot></slot>
+  </h2>
+</template>
+
+<script>
+export default {
+  name: "SingleTitle",
+};
+</script>
+
+<style scoped>
+/* 标题样式 */
+.single-title {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 0;
+}
+</style>
