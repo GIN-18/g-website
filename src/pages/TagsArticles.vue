@@ -6,7 +6,7 @@
       :id="article._id"
       :title="article.title"
       :description="article.description"
-      :updated="article.updated"
+      :created="article.created"
       :views="article.views"
       :tag="article.tag"
     ></ArticleListItem>
@@ -19,7 +19,7 @@ import axios from "axios";
 import ArticleListItem from "@/components/main/articles/ArticleListItem";
 
 export default {
-  name: "Tags_Articles",
+  name: "TagsArticles",
   components: {
     ArticleListItem,
   },

@@ -91,12 +91,3 @@ svg[class="primary-icon"] path {
 svg[class="meta-icon"] path {
   fill: var(--nord-text-meta);
 }
-
-/* 鼠标经过列表项样式 */
-.item-bigger {
-  transition: 1s;
-}
-.item-bigger:hover {
-  transform: scale(1.02);
-  cursor: pointer;
-}

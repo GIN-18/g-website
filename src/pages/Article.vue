@@ -78,6 +78,7 @@
 
 <script>
 import axios from "axios";
+import { formatDate } from "@/utils/dateFormat";
 import markdownConversion from "@/utils/markdownConversion";
 
 import MetaLine from "@/components/common/MetaLine";
@@ -93,14 +94,14 @@ export default {
     return {
       title: "",
       tag: "",
-      updated: "",
+      created: "",
       views: "",
       content: "",
     };
   },
   computed: {
     postDate() {
-      return new Date(this.updated * 1000).toString().slice(0, 24);
+      return formatDate(this.created);
     },
   },
   created() {
@@ -112,10 +113,10 @@ export default {
         },
       })
       .then((res) => {
-        var { title, tag, updated, views, content } = res.data.data;
+        var { title, tag, created, views, content } = res.data.data;
         this.title = title;
         this.tag = tag;
-        this.updated = updated;
+        this.created = created;
         this.views = views;
         this.content = markdownConversion.markdownToHtml(content);
       });
@@ -130,7 +131,7 @@ export default {
 
 #article-title {
   margin: 32px 0 8px;
-  animation: swing;
+  animation: jello;
   animation-duration: 2s;
 }
 

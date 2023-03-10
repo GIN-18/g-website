@@ -11,10 +11,11 @@ export default {
 </script>
 
 <style scoped>
-/* 标题样式 */
 .single-title {
   display: flex;
   justify-content: flex-end;
   margin: 1rem 0;
+  animation: bounceIn;
+  animation-duration: 1s;
 }
 </style>

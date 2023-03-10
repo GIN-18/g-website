@@ -90,19 +90,21 @@
 </template>
 
 <script>
+import { formatDate } from "@/utils/dateFormat";
+
 import MetaLine from "@/components/common/MetaLine";
 import MetaLineItem from "@/components/common/MetaLineItem";
 
 export default {
   name: "ArticleListItem",
-  props: ["id", "title", "description", "updated", "views", "tag"],
+  props: ["id", "title", "description", "created", "views", "tag"],
   components: {
     MetaLine,
     MetaLineItem,
   },
   computed: {
     postDate() {
-      return new Date(this.updated * 1000).toString().slice(0, 24);
+      return formatDate(this.created)
     },
   },
 };

@@ -1,8 +1,6 @@
 <template>
   <router-link class="tag-list-item" :to="`/tags/${tag}`">
-    <h3>
-      <slot></slot>
-    </h3>
+    <slot></slot>
   </router-link>
 </template>
 
@@ -16,6 +14,9 @@ export default {
 <style scoped>
 .tag-list-item {
   margin-bottom: 0.5rem;
+  color: var(--nord-text-primary);
+  font-size: 18px;
+  font-weight: 600;
 }
 .tag-list-item:not(:first-child) {
   margin-left: 1rem;

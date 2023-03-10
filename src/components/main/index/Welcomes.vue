@@ -18,7 +18,5 @@ export default {
   margin: 28px 0 28px;
   font-size: 28px;
   font-weight: 600;
-  animation: heartBeat;
-  animation-duration: 2s;
 }
 </style>

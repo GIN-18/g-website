@@ -6,7 +6,7 @@
       :id="article._id"
       :title="article.title"
       :description="article.description"
-      :updated="article.updated"
+      :created="article.created"
       :views="article.views"
       :tag="article.tag"
     ></ArticleListItem>
