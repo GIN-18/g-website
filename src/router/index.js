@@ -25,7 +25,7 @@ var router = new VueRouter({
       component: Articles,
     },
     {
-      path: "/article/:id/:views",
+      path: "/article/:id",
       component: Article,
     },
     {

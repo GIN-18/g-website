@@ -2,7 +2,7 @@
   <div class="article-list-item">
     <!-- 文章标题 -->
     <header>
-      <router-link :to="`/article/${id}/${views}`">
+      <router-link :to="`/article/${id}`">
         <h3 class="article-title">
           {{ title }}
         </h3>

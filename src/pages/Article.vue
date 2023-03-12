@@ -106,10 +106,9 @@ export default {
   },
   created() {
     axios
-      .get("https://website.cms.gin-18.top/api/article/getArticleById", {
+      .get("https://website.cms.gin-18.top/api/article/getArticleByIdAndUpdate", {
         params: {
           id: this.$route.params.id,
-          views: this.$route.params.views,
         },
       })
       .then((res) => {

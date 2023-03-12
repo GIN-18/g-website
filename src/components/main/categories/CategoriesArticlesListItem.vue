@@ -9,7 +9,7 @@
         class="category-articles-list-item"
         v-for="(article, index) in categoryArticles"
         :key="index"
-        :to="`/article/${article._id}/${article.views}`"
+        :to="`/article/${article._id}`"
       >
         {{ article.title }}
       </router-link>
