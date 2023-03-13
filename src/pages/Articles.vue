@@ -1,30 +1,41 @@
 <template>
-  <div id="blog">
-    <SingleTitle> 文章列表 </SingleTitle>
+  <div id="articles">
+    <SingleTitle>文章列表</SingleTitle>
     <MetaLine>
       <MetaLineItem>
         <template v-slot:icon>
           <svg
-            t="1678171602315"
+            t="1678613546748"
             class="meta-icon"
             viewBox="0 0 1024 1024"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
-            p-id="5604"
+            p-id="5906"
             width="14"
             height="14"
           >
             <path
-              d="M345.6 32H102.4C64 32 32 64 32 102.4v819.2C32 960 64 992 102.4 992h243.2c38.4 0 70.4-32 70.4-70.4V102.4C416 64 384 32 345.6 32zM320 880H128c-25.6 0-48-22.4-48-48s22.4-48 48-48h192c25.6 0 48 22.4 48 48s-22.4 48-48 48z m0-640H128c-25.6 0-48-22.4-48-48S102.4 144 128 144h192c25.6 0 48 22.4 48 48s-22.4 48-48 48z m675.2 617.6L870.4 144c-6.4-38.4-41.6-64-80-57.6L550.4 128c-38.4 6.4-64 41.6-57.6 80l124.8 713.6c6.4 38.4 41.6 64 80 57.6l240-41.6c38.4-6.4 64-44.8 57.6-80z m-384-528c-25.6 3.2-51.2-12.8-57.6-38.4s12.8-51.2 38.4-57.6l188.8-32c25.6-3.2 51.2 12.8 57.6 38.4 3.2 25.6-12.8 51.2-38.4 57.6l-188.8 32zM892.8 832L704 864c-25.6 3.2-51.2-12.8-57.6-38.4-3.2-25.6 12.8-51.2 38.4-57.6l188.8-32c25.6-3.2 51.2 12.8 57.6 38.4 6.4 28.8-12.8 54.4-38.4 57.6z"
+              d="M810.666667 0H213.333333C142.613333 0 85.333333 57.28 85.333333 128v768c0 70.72 57.28 128 128 128h597.333334c70.72 0 128-57.28 128-128V128c0-70.72-57.28-128-128-128z m42.666666 896c0 23.573333-19.093333 42.666667-42.666666 42.666667H213.333333c-23.573333 0-42.666667-19.093333-42.666666-42.666667V128c0-23.573333 19.093333-42.666667 42.666666-42.666667h597.333334c23.573333 0 42.666667 19.093333 42.666666 42.666667v768zM682.666667 725.333333H341.333333a42.666667 42.666667 0 0 0 0 85.333334h341.333334a42.666667 42.666667 0 0 0 0-85.333334z m0-170.666666H341.333333a42.666667 42.666667 0 0 0 0 85.333333h341.333334a42.666667 42.666667 0 0 0 0-85.333333z m0-170.666667H341.333333a42.666667 42.666667 0 0 0 0 85.333333h341.333334a42.666667 42.666667 0 0 0 0-85.333333z m-341.333334-85.333333h170.666667a42.666667 42.666667 0 0 0 0-85.333334H341.333333a42.666667 42.666667 0 0 0 0 85.333334z"
+              p-id="5907"
               fill="#3B4252"
-              p-id="5605"
             ></path>
           </svg>
         </template>
         <template v-slot:info> 共 {{ articles.length }} 篇文章 </template>
       </MetaLineItem>
     </MetaLine>
-    <ArticleList :articles="articles"></ArticleList>
+    <ArticleList>
+      <ArticleListItem
+        v-for="(article, index) in articles"
+        :key="index"
+        :id="article._id"
+        :title="article.title"
+        :description="article.description"
+        :created="article.created"
+        :views="article.views"
+        :tag="article.tag"
+      ></ArticleListItem>
+    </ArticleList>
   </div>
 </template>
 
@@ -35,6 +46,7 @@ import SingleTitle from "@/components/common/SingleTitle";
 import MetaLine from "@/components/common/MetaLine";
 import MetaLineItem from "@/components/common/MetaLineItem";
 import ArticleList from "@/components/main/articles/ArticleList";
+import ArticleListItem from "@/components/main/articles/ArticleListItem";
 
 export default {
   name: "Articles",
@@ -43,6 +55,7 @@ export default {
     MetaLine,
     MetaLineItem,
     ArticleList,
+    ArticleListItem,
   },
   data() {
     return {
@@ -55,16 +68,6 @@ export default {
       .then((res) => {
         this.articles = res.data.data;
       });
-  },
-  beforeRouteUpdate(to, from, next) {
-    axios
-      .get(
-        `https://website.cms.gin-18.top/api/article/getArticleByTag?tag=${to.query.tag}`
-      )
-      .then((res) => {
-        this.articles = res.data.data;
-      });
-    next();
   },
 };
 </script>

@@ -14,6 +14,6 @@ export default {
 .meta-line {
   display: flex;
   align-items: center;
-  margin: 0 0 calc(0.5rem - 2px);
+  margin: 0 0 6px;
 }
 </style>

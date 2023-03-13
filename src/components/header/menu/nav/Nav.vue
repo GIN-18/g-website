@@ -19,4 +19,23 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+@media (min-width: 1008px) {
+  #nav-bar {
+    display: block;
+  }
+}
+@media (max-width: 1007px) {
+  #nav-bar {
+    display: block;
+  }
+}
+@media (max-width: 640px) {
+  #nav-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+</style>

@@ -2,19 +2,19 @@
   <div>
     <GroupTitle>
       <svg
-        t="1678590010691"
-        class="icon"
+        t="1678611562869"
+        class="primary-icon"
         viewBox="0 0 1024 1024"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
-        p-id="63960"
+        p-id="4414"
         width="18"
         height="18"
       >
         <path
-          d="M800 192h-288a128 128 0 0 0-128-128H160a128 128 0 0 0-128 128v576a192 192 0 0 0 192 192h576a192 192 0 0 0 192-192V384a192 192 0 0 0-192-192z"
+          d="M399.082667 260.672L423.658667 298.666667H853.333333c23.530667 0 42.666667 19.136 42.666667 42.666666v469.333334c0 23.530667-19.136 42.666667-42.666667 42.666666H170.666667c-23.530667 0-42.666667-19.136-42.666667-42.666666V213.333333c0-23.530667 19.136-42.666667 42.666667-42.666666h170.666666l57.749334 90.005333zM384 85.333333H170.666667C99.946667 85.333333 42.666667 142.613333 42.666667 213.333333v597.333334c0 70.72 57.28 128 128 128h682.666666c70.72 0 128-57.28 128-128V341.333333c0-70.72-57.28-128-128-128H469.333333L384 85.333333z"
+          p-id="4415"
           fill="#3B4252"
-          p-id="63961"
         ></path>
       </svg>
       {{ year }}
@@ -24,7 +24,7 @@
         <router-link :to="`/article/${docItem._id}`">{{
           docItem.title
         }}</router-link>
-        <span>{{ MonthAndDate(docItem.created) }}</span>
+        <span class="doc-item-date">{{ MonthAndDate(docItem.created) }}</span>
       </li>
     </ul>
   </div>
@@ -53,7 +53,7 @@ export default {
         date.getMonth() < 10 ? "0" + date.getMonth() : date.getMonth();
       var currentDate =
         date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-      return `${currentMonth} - ${currentDate}`;
+      return `${currentMonth}-${currentDate}`;
     },
   },
   created() {
@@ -75,5 +75,9 @@ export default {
 .doc-item {
   display: flex;
   justify-content: space-between;
+}
+
+.doc-item-date {
+  color: var(--nord-text-meta);
 }
 </style>

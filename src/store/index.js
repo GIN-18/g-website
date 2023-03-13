@@ -4,10 +4,19 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 var store = new Vuex.Store({
-  actions: {},
-  mutations: {},
+  actions: {
+    showMobileMenu(context) {
+      context.commit("showMobileMenu")
+    }
+  },
+  mutations: {
+    showMobileMenu(state) {
+      state.showMobileMenu = !state.showMobileMenu;
+    },
+  },
   state: {
     user: {},
+    showMobileMenu: false,
   },
 });
 

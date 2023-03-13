@@ -1,8 +1,8 @@
 <template>
   <div class="categories-articles-list-item">
-    <header class="header-of-category">
+    <header class="header-of-category-item">
       <h3 class="category-name">{{ category }}</h3>
-      <span class="count-of-category">{{ categoryArticles.length }} </span>
+      <span class="sum-of-category-item">共 {{ categoryArticles.length }} 篇</span>
     </header>
     <div class="category-articles-list">
       <router-link
@@ -44,25 +44,29 @@ export default {
 
 <style scoped>
 .categories-articles-list-item {
-  margin: 0 0 10px;
-  padding: 8px;
+  margin: 0 0 8px;
   border: 1px solid var(--nord-border-primary);
   border-radius: 6px;
 }
 
 /* 分类项头部 */
-.header-of-category {
+.header-of-category-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 8px;
   border-bottom: 1px solid var(--nord-border-primary);
 }
 
+/* 分类文章列表 */
 .category-articles-list {
   display: flex;
   flex-direction: column;
-}
-.category-articles-list-item {
-  margin: 4px 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow: auto;
+  max-height: 160px;
+  height: 160px;
+  padding: 8px;
 }
 </style>

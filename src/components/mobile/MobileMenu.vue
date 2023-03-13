@@ -1,5 +1,5 @@
 <template>
-  <div id="menu-bar">
+  <div id="mobile-menu">
     <Nav></Nav>
     <Theme></Theme>
   </div>
@@ -10,7 +10,7 @@ import Nav from "@/components/header/menu/nav/Nav";
 import Theme from "@/components/header/menu/theme/Theme";
 
 export default {
-  name: "Menu",
+  name: "MobileMenu",
   components: {
     Nav,
     Theme,
@@ -19,24 +19,15 @@ export default {
 </script>
 
 <style scoped>
-#menu-bar {
+#mobile-menu {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-@media (min-width: 1008px) {
-  #menu-bar {
-    display: flex;
-  }
-}
-@media (max-width: 1007px) {
-  #menu-bar {
-    display: flex;
-  }
-}
-@media (max-width: 640px) {
-  #menu-bar {
-    display: none;
-  }
+  position: fixed;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  background-color: var(--nord-bg-secondary);
 }
 </style>
