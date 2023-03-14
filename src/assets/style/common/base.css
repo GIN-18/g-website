@@ -77,6 +77,11 @@ a:active {
   color: var(--nord-text-primary);
 }
 
+button {
+  outline: none;
+  border: none;
+}
+
 /* 所有svg右侧6px像素值 */
 svg {
   margin-right: 6px;

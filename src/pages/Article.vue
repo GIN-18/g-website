@@ -22,7 +22,7 @@
           </svg>
         </template>
         <template v-slot:info>
-          {{ postDate }}
+          {{ created }}
         </template>
       </MetaLineItem>
       <MetaLineItem>
@@ -73,6 +73,7 @@
       </MetaLineItem>
     </MetaLine>
     <article id="article-content" v-html="content"></article>
+    <BuyMeACoffee></BuyMeACoffee>
   </div>
 </template>
 
@@ -83,12 +84,14 @@ import markdownConversion from "@/utils/markdownConversion";
 
 import MetaLine from "@/components/common/MetaLine";
 import MetaLineItem from "@/components/common/MetaLineItem";
+import BuyMeACoffee from "@/components/common/BuyMeACoffee";
 
 export default {
   name: "Article",
   components: {
     MetaLine,
     MetaLineItem,
+    BuyMeACoffee,
   },
   data() {
     return {
@@ -98,11 +101,6 @@ export default {
       views: "",
       content: "",
     };
-  },
-  computed: {
-    postDate() {
-      return formatDate(this.created);
-    },
   },
   created() {
     axios
@@ -118,7 +116,7 @@ export default {
         var { title, tag, created, views, content } = res.data.data;
         this.title = title;
         this.tag = tag;
-        this.created = created;
+        this.created = formatDate(created);
         this.views = views;
         this.content = markdownConversion.markdownToHtml(content);
       });

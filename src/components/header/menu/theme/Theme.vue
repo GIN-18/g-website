@@ -65,8 +65,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  outline: none;
-  border: none;
   background-color: var(--nord-bg-secondary);
 }
 </style>
