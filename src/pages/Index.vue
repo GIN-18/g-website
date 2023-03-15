@@ -1,9 +1,9 @@
 <template>
-  <div id="index">
-    <Avatar width="11"></Avatar>
-    <Welcomes></Welcomes>
-    <Social></Social>
-  </div>
+    <div id="index">
+      <Avatar width="11"></Avatar>
+      <Welcomes></Welcomes>
+      <Social></Social>
+    </div>
 </template>
 
 <script>

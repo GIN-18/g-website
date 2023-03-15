@@ -24,6 +24,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 @media (min-width: 1008px) {
   #menu-bar {
     display: flex;

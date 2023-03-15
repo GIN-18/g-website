@@ -1,5 +1,5 @@
 <template>
-  <header id="header">
+  <header id="website-header">
     <Logo></Logo>
     <Menu></Menu>
     <MobileMenuButton></MobileMenuButton>
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style scoped>
-#header {
+#website-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,17 +34,17 @@ export default {
 }
 
 @media (min-width: 1008px) {
-  #header {
+  #website-header {
     padding: 8px 60px;
   }
 }
 @media (max-width: 1007px) {
-  #header {
+  #website-header {
     padding: 8px 60px;
   }
 }
 @media (max-width: 640px) {
-  #header {
+  #website-header {
     padding: 8px;
   }
 }

@@ -1,6 +1,8 @@
 <template>
   <div id="tag-list">
-    <TagListItem v-for="(tag, index) in tagList" :key="index" :tag="tag">{{ tag }}</TagListItem>
+    <TagListItem v-for="(tag, index) in tagList" :key="index" :tag="tag">{{
+      tag
+    }}</TagListItem>
   </div>
 </template>
 

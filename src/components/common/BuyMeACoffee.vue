@@ -1,20 +1,20 @@
 <template>
   <div id="buy-me-a-coffee">
-    <div class="payment" v-show="showPayment">
-      <div class="payment-item">
-        <img
-          src="@/assets/images/payment/wechatpay.jpg"
-        />
-        <span>微信</span>
+    <!-- 赞赏二维码 -->
+    <transition appear name="payment">
+      <div class="payment" v-if="showPayment">
+        <div class="payment-item">
+          <img src="@/assets/images/payment/wechatpay.jpg" />
+          <span>微信</span>
+        </div>
+        <div class="payment-item">
+          <img src="@/assets/images/payment/alipay.jpg" />
+          <span>支付宝</span>
+        </div>
       </div>
-      <div class="payment-item">
-        <img
-          src="@/assets/images/payment/alipay.jpg"
-        />
-        <span>支付宝</span>
-      </div>
-    </div>
-    <button class="pay-button" @click="changeShowPaymentState">
+    </transition>
+    <!-- 赞赏按钮 -->
+    <button class="pay-button" @click="showPayment = !showPayment">
       <svg
         t="1678711849388"
         class="icon"
@@ -44,11 +44,6 @@ export default {
       showPayment: false,
     };
   },
-  methods: {
-    changeShowPaymentState() {
-      this.showPayment = !this.showPayment;
-    },
-  },
 };
 </script>
 
@@ -58,14 +53,15 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 16px;
 }
 
-/* 支付二维码 */
+/* 赞赏二维码 */
 .payment {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   top: 50px;
   padding: 8px;
   border: 1px solid #d08770;
@@ -86,7 +82,7 @@ export default {
   border-radius: 6px;
 }
 
-/* 支付按钮 */
+/* 赞赏按钮 */
 .pay-button {
   display: flex;
   justify-content: center;
@@ -96,5 +92,15 @@ export default {
   border-radius: 6px;
   color: #d08770;
   background-color: var(--nord-bg-primary);
+}
+
+/* 赞赏二维码动画 */
+.payment-enter-active {
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+}
+.payment-leave-active {
+  animation-name: fadeOut;
+  animation-duration: 0.3s;
 }
 </style>

@@ -1,7 +1,9 @@
 <template>
-  <h2 class="single-title">
-    <slot></slot>
-  </h2>
+  <transition appear name="single-title">
+    <h2 class="single-title">
+      <slot></slot>
+    </h2>
+  </transition>
 </template>
 
 <script>
@@ -15,7 +17,10 @@ export default {
   display: flex;
   justify-content: flex-end;
   margin: 1rem 0;
-  animation: bounceIn;
-  animation-duration: 1s;
+}
+
+.single-title-enter-active {
+  animation: lightSpeedInRight;
+  animation-duration: 0.2s;
 }
 </style>

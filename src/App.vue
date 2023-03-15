@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="container">
     <Header></Header>
     <Main></Main>
     <Footer></Footer>
@@ -35,7 +35,7 @@ export default {
 /* 引入base.css */
 @import "@/assets/style/common/base.css";
 
-#app {
+#container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

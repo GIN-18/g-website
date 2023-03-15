@@ -1,6 +1,6 @@
 <template>
   <div id="docs">
-    <SingleTitle> 归档 </SingleTitle>
+    <SingleTitle>归档</SingleTitle>
     <DocItem v-for="(year, index) in years" :key="index" :year="year"></DocItem>
   </div>
 </template>
@@ -31,5 +31,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>
