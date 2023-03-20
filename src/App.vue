@@ -23,7 +23,11 @@ export default {
   },
   created() {
     axios
-      .get("https://website.cms.gin-18.top/api/user?id=63ad2586b9410d7b61a65764")
+      .get("https://website.cms.gin-18.top/api/user", {
+        params: {
+          id: "63ad2586b9410d7b61a65764",
+        },
+      })
       .then((res) => {
         this.$store.state.user = res.data.data;
       });

@@ -24,10 +24,10 @@
 </template>
 
 <script>
-import ArticleMetaLine from "@/components/main/articles/ArticleMetaLine";
+import ArticleMetaLine from "@/components/main/article/ArticleMetaLine";
 
 export default {
-  name: "ArticleListItem",
+  name: "ArticlesListItem",
   props: ["id", "title", "description", "created", "views", "tag"],
   components: {
     ArticleMetaLine,

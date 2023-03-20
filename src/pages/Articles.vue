@@ -6,7 +6,7 @@
       :sumOfArticles="articles.length"
     ></ArticlesPageMetaLine>
     <!-- 文章列表 -->
-    <ArticleList :articles="articles"></ArticleList>
+    <ArticlesList :articles="articles"></ArticlesList>
   </div>
 </template>
 
@@ -15,14 +15,14 @@ import axios from "axios";
 
 import SingleTitle from "@/components/common/SingleTitle";
 import ArticlesPageMetaLine from "@/components/main/articles/ArticlesPageMetaLine";
-import ArticleList from "@/components/main/articles/ArticleList";
+import ArticlesList from "@/components/main/articles/ArticlesList";
 
 export default {
   name: "Articles",
   components: {
     SingleTitle,
     ArticlesPageMetaLine,
-    ArticleList,
+    ArticlesList,
   },
   data() {
     return {

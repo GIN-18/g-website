@@ -1,6 +1,6 @@
 <template>
   <div class="article-list">
-    <ArticleListItem
+    <ArticlesListItem
       v-for="(article, index) in articles"
       :key="index"
       :id="article._id"
@@ -9,18 +9,18 @@
       :created="article.created"
       :views="article.views"
       :tag="article.tag"
-    ></ArticleListItem>
+    ></ArticlesListItem>
   </div>
 </template>
 
 <script>
-import ArticleListItem from "@/components/main/articles/ArticleListItem";
+import ArticlesListItem from "@/components/main/articles/ArticlesListItem";
 
 export default {
-  name: "ArticleList",
+  name: "ArticlesList",
   props: ["articles"],
   components: {
-    ArticleListItem,
+    ArticlesListItem,
   },
 };
 </script>

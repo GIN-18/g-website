@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ArticleListItem
+    <ArticlesListItem
       v-for="(article, index) in tags_articles"
       :key="index"
       :id="article._id"
@@ -9,19 +9,19 @@
       :created="article.created"
       :views="article.views"
       :tag="article.tag"
-    ></ArticleListItem>
+    ></ArticlesListItem>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 
-import ArticleListItem from "@/components/main/articles/ArticleListItem";
+import ArticlesListItem from "@/components/main/articles/ArticlesListItem";
 
 export default {
   name: "TagsArticles",
   components: {
-    ArticleListItem,
+    ArticlesListItem,
   },
   data() {
     return {

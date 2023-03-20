@@ -21,7 +21,7 @@
 import axios from "axios";
 import markdownConversion from "@/utils/markdownConversion";
 
-import ArticleMetaLine from "@/components/main/articles/ArticleMetaLine";
+import ArticleMetaLine from "@/components/main/article/ArticleMetaLine";
 import BuyMeACoffee from "@/components/common/BuyMeACoffee";
 
 export default {

@@ -58,7 +58,9 @@ export default {
     MonthAndDate(timestamp) {
       var date = new Date(timestamp * 1000);
       var currentMonth =
-        date.getMonth() < 10 ? "0" + date.getMonth() : date.getMonth();
+        date.getMonth() + 1 < 10
+          ? "0" + (date.getMonth() + 1)
+          : date.getMonth() + 1;
       var currentDate =
         date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
       return `${currentMonth}-${currentDate}`;
@@ -72,7 +74,6 @@ export default {
         },
       })
       .then((res) => {
-        console.log(res.data.data);
         this.showDoc = res.data.data.length > 0 ? true : false;
         this.docItemList = res.data.data;
       });
