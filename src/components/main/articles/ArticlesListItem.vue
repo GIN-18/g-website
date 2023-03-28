@@ -16,8 +16,8 @@
       <!-- 文章信息 -->
       <ArticleMetaLine
         :created="created"
+        :updated="updated"
         :tag="tag"
-        :views="views"
       ></ArticleMetaLine>
     </div>
   </transition>
@@ -28,7 +28,7 @@ import ArticleMetaLine from "@/components/main/article/ArticleMetaLine";
 
 export default {
   name: "ArticlesListItem",
-  props: ["id", "title", "description", "created", "views", "tag"],
+  props: ["id", "title", "description", "created", "updated", "tag"],
   components: {
     ArticleMetaLine,
   },

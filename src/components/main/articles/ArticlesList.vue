@@ -7,7 +7,7 @@
       :title="article.title"
       :description="article.description"
       :created="article.created"
-      :views="article.views"
+      :updated="article.updated"
       :tag="article.tag"
     ></ArticlesListItem>
   </div>

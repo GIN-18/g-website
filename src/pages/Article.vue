@@ -6,8 +6,8 @@
       <!-- 文章信息栏 -->
       <ArticleMetaLine
         :created="created"
+        :updated="updated"
         :tag="tag"
-        :views="views"
       ></ArticleMetaLine>
       <!-- 文章内容 -->
       <article class="content" v-html="content"></article>
@@ -36,14 +36,14 @@ export default {
       title: "",
       tag: "",
       created: "",
-      views: "",
+      updated: "",
       content: "",
     };
   },
   created() {
     axios
       .get(
-        "https://website.cms.gin-18.top/api/article/getArticleByIdAndUpdate",
+        "https://website.cms.gin-18.top/api/article/getArticleById",
         {
           params: {
             id: this.$route.params.id,
@@ -51,13 +51,13 @@ export default {
         }
       )
       .then((res) => {
-        var { title, tag, created, views, content } = res.data.data;
+        var { title, tag, created, updated, content } = res.data.data;
         // 请求到数据后再渲染页面
         this.showArticle = Object.keys(res.data.data).length > 0 ? true : false;
         this.title = title;
         this.tag = tag;
         this.created = created;
-        this.views = views;
+        this.updated = updated;
         this.content = markdownConversion.markdownToHtml(content);
       });
   },

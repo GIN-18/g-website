@@ -63,7 +63,7 @@ export default {
   align-items: center;
   margin-bottom: 12px;
   top: 50px;
-  padding: 8px;
+  padding: 16px;
   border: 1px solid #d08770;
   border-radius: 6px;
 }
@@ -75,11 +75,14 @@ export default {
   color: #d08770;
 }
 .payment-item:first-child {
-  margin-right: 8px;
+  margin-right: 16px;
 }
 .payment-item img {
   height: 120px;
+  margin-bottom: 8px;
+  padding: 16px;
   border-radius: 6px;
+  background-color: #E5E9F0;
 }
 
 /* 赞赏按钮 */
