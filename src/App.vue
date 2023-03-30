@@ -37,6 +37,7 @@ export default {
 
 <style>
 /* 引入base.css */
+@import "@/assets/style/tailwindcss/index.css";
 @import "@/assets/style/common/base.css";
 
 #container {

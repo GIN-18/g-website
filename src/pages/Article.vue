@@ -1,20 +1,18 @@
 <template>
-  <transition appear name="article">
-    <div v-show="showArticle">
-      <!-- 文章标题 -->
-      <h1 class="title">{{ title }}</h1>
-      <!-- 文章信息栏 -->
-      <ArticleMetaLine
-        :created="created"
-        :updated="updated"
-        :tag="tag"
-      ></ArticleMetaLine>
-      <!-- 文章内容 -->
-      <article class="content" v-html="content"></article>
-      <!-- 赞赏按钮 -->
-      <BuyMeACoffee></BuyMeACoffee>
-    </div>
-  </transition>
+  <div v-show="showArticle">
+    <!-- 文章标题 -->
+    <h1 class="title">{{ title }}</h1>
+    <!-- 文章信息栏 -->
+    <ArticleMetaLine
+      :created="created"
+      :updated="updated"
+      :tag="tag"
+    ></ArticleMetaLine>
+    <!-- 文章内容 -->
+    <article class="content" v-html="content"></article>
+    <!-- 赞赏按钮 -->
+    <BuyMeACoffee></BuyMeACoffee>
+  </div>
 </template>
 
 <script>
@@ -42,14 +40,11 @@ export default {
   },
   created() {
     axios
-      .get(
-        "https://website.cms.gin-18.top/api/article/getArticleById",
-        {
-          params: {
-            id: this.$route.params.id,
-          },
-        }
-      )
+      .get("https://website.cms.gin-18.top/api/article/getArticleById", {
+        params: {
+          id: this.$route.params.id,
+        },
+      })
       .then((res) => {
         var { title, tag, created, updated, content } = res.data.data;
         // 请求到数据后再渲染页面
@@ -66,8 +61,8 @@ export default {
 
 <style lang="css">
 /* 引入文章样式 */
-@import "@/assets/style/article/highlight.css";
 @import "@/assets/style/article/markdown.css";
+@import "@catppuccin/highlightjs/css/catppuccin-frappe.css";
 
 .title {
   margin: 32px 0 8px;
@@ -75,11 +70,5 @@ export default {
 
 .table-of-contents ::marker {
   color: var(--nord-text-link);
-}
-
-/* 动画 */
-.article-enter-active {
-  animation-name: fadeIn;
-  animation-duration: 0.2s;
 }
 </style>

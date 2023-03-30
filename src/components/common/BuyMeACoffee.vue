@@ -1,18 +1,16 @@
 <template>
   <div id="buy-me-a-coffee">
     <!-- 赞赏二维码 -->
-    <transition appear name="payment">
-      <div class="payment" v-if="showPayment">
-        <div class="payment-item">
-          <img src="@/assets/images/payment/wechatpay.jpg" />
-          <span>微信</span>
-        </div>
-        <div class="payment-item">
-          <img src="@/assets/images/payment/alipay.jpg" />
-          <span>支付宝</span>
-        </div>
+    <div class="payment" v-if="showPayment">
+      <div class="payment-item">
+        <img src="@/assets/images/payment/wechatpay.jpg" />
+        <span>微信</span>
       </div>
-    </transition>
+      <div class="payment-item">
+        <img src="@/assets/images/payment/alipay.jpg" />
+        <span>支付宝</span>
+      </div>
+    </div>
     <!-- 赞赏按钮 -->
     <button class="pay-button" @click="showPayment = !showPayment">
       <svg
@@ -82,7 +80,7 @@ export default {
   margin-bottom: 8px;
   padding: 16px;
   border-radius: 6px;
-  background-color: #E5E9F0;
+  background-color: #e5e9f0;
 }
 
 /* 赞赏按钮 */
@@ -95,15 +93,5 @@ export default {
   border-radius: 6px;
   color: #d08770;
   background-color: var(--nord-bg-primary);
-}
-
-/* 赞赏二维码动画 */
-.payment-enter-active {
-  animation-name: fadeIn;
-  animation-duration: 0.3s;
-}
-.payment-leave-active {
-  animation-name: fadeOut;
-  animation-duration: 0.3s;
 }
 </style>

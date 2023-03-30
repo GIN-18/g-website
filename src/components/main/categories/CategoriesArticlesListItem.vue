@@ -1,24 +1,22 @@
 <template>
-  <transition appear name="categories-item">
-    <div class="categories-articles-list-item">
-      <header class="header-of-category-item">
-        <h3 class="category-name">{{ category }}</h3>
-        <span class="sum-of-category-item"
-          >共 {{ categoryArticles.length }} 篇</span
-        >
-      </header>
-      <div class="category-articles-list">
-        <router-link
-          class="category-articles-list-item"
-          v-for="(article, index) in categoryArticles"
-          :key="index"
-          :to="`/article/${article._id}`"
-        >
-          {{ article.title }}
-        </router-link>
-      </div>
+  <div class="categories-articles-list-item">
+    <header class="header-of-category-item">
+      <h3 class="category-name">{{ category }}</h3>
+      <span class="sum-of-category-item"
+        >共 {{ categoryArticles.length }} 篇</span
+      >
+    </header>
+    <div class="category-articles-list">
+      <router-link
+        class="category-articles-list-item"
+        v-for="(article, index) in categoryArticles"
+        :key="index"
+        :to="`/article/${article._id}`"
+      >
+        {{ article.title }}
+      </router-link>
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -72,11 +70,5 @@ export default {
   max-height: 160px;
   height: 160px;
   padding: 8px;
-}
-
-/* 分类项动画 */
-.categories-item-enter-active {
-  animation-name: zoomIn;
-  animation-duration: 0.2s;
 }
 </style>

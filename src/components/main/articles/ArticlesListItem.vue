@@ -1,26 +1,24 @@
 <template>
-  <transition appear name="article-item">
-    <div class="article-list-item">
-      <!-- 文章标题 -->
-      <header>
-        <router-link :to="`/article/${id}`">
-          <h3 class="article-title">
-            {{ title }}
-          </h3>
-        </router-link>
-      </header>
-      <!-- 文章描述 -->
-      <p class="article-description">
-        {{ description }}
-      </p>
-      <!-- 文章信息 -->
-      <ArticleMetaLine
-        :created="created"
-        :updated="updated"
-        :tag="tag"
-      ></ArticleMetaLine>
-    </div>
-  </transition>
+  <div class="article-list-item">
+    <!-- 文章标题 -->
+    <header>
+      <router-link :to="`/article/${id}`">
+        <h3 class="article-title">
+          {{ title }}
+        </h3>
+      </router-link>
+    </header>
+    <!-- 文章描述 -->
+    <p class="article-description">
+      {{ description }}
+    </p>
+    <!-- 文章信息 -->
+    <ArticleMetaLine
+      :created="created"
+      :updated="updated"
+      :tag="tag"
+    ></ArticleMetaLine>
+  </div>
 </template>
 
 <script>
@@ -53,11 +51,5 @@ export default {
 
 .meta-line {
   margin-bottom: 0;
-}
-
-/* 文章项动画 */
-.article-item-enter-active {
-  animation-name: zoomIn;
-  animation-duration: 0.2s;
 }
 </style>
