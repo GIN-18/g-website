@@ -1,5 +1,5 @@
 <template>
-  <header id="website-header">
+  <header class="flex justify-between items-center px-6 py-3 bg-ctp-mantle">
     <Logo></Logo>
     <Menu></Menu>
     <MobileMenuButton></MobileMenuButton>
@@ -23,29 +23,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-#website-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 60px;
-  background-color: var(--nord-bg-secondary);
-}
-
-@media (min-width: 1008px) {
-  #website-header {
-    padding: 8px 60px;
-  }
-}
-@media (max-width: 1007px) {
-  #website-header {
-    padding: 8px 60px;
-  }
-}
-@media (max-width: 640px) {
-  #website-header {
-    padding: 8px;
-  }
-}
-</style>

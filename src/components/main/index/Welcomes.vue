@@ -1,5 +1,5 @@
 <template>
-  <p id="welcomes">{{ welcomes }}</p>
+  <p class="my-6 text-ctp-text text-3xl font-semibold">{{ welcomes }}</p>
 </template>
 
 <script>
@@ -12,11 +12,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-#welcomes {
-  margin: 28px 0 28px;
-  font-size: 28px;
-  font-weight: 600;
-}
-</style>

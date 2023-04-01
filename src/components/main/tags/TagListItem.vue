@@ -1,5 +1,8 @@
 <template>
-  <router-link class="tag-list-item" :to="`/tags/${tag}`">
+  <router-link
+    class="text-lg font-semibold link-hover"
+    :to="`/tags/${tag}`"
+  >
     <slot></slot>
   </router-link>
 </template>
@@ -12,17 +15,7 @@ export default {
 </script>
 
 <style scoped>
-.tag-list-item {
-  margin-bottom: 0.5rem;
-  color: var(--nord-text-primary);
-  font-size: 18px;
-  font-weight: 600;
-}
-.tag-list-item:not(:first-child) {
-  margin-left: 1rem;
-}
-
-.route-link-active {
-  color: var(--nord-link-active);
+.router-link-active {
+  @apply text-ctp-green;
 }
 </style>

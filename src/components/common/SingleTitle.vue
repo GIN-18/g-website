@@ -1,5 +1,5 @@
 <template>
-  <h2 class="single-title">
+  <h2 class="flex justify-end my-6 text-ctp-text text-2xl font-semibold">
     <slot></slot>
   </h2>
 </template>
@@ -9,11 +9,3 @@ export default {
   name: "SingleTitle",
 };
 </script>
-
-<style scoped>
-.single-title {
-  display: flex;
-  justify-content: flex-end;
-  margin: 1rem 0;
-}
-</style>

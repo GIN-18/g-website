@@ -1,17 +1,22 @@
 <template>
-  <div class="article-list-item">
+  <div
+    class="article-list-item p-6 border-2 border-ctp-subtext0 rounded-md"
+  >
     <!-- 文章标题 -->
-    <header>
-      <router-link :to="`/article/${id}`">
-        <h3 class="article-title">
-          {{ title }}
-        </h3>
-      </router-link>
-    </header>
+    <router-link
+      class="text-lg font-semibold link-hover"
+      :to="`/article/${id}`"
+    >
+      <h3>
+        {{ title }}
+      </h3>
+    </router-link>
+
     <!-- 文章描述 -->
-    <p class="article-description">
+    <p class="py-3 text-ctp-subtext0">
       {{ description }}
     </p>
+
     <!-- 文章信息 -->
     <ArticleMetaLine
       :created="created"
@@ -34,22 +39,7 @@ export default {
 </script>
 
 <style scoped>
-.article-list-item {
-  padding: 16px;
-  border: 1px solid var(--nord-border-primary);
-  border-radius: 6px;
-}
-.article-list-item:not(:first-child) {
-  margin-top: 8px;
-}
-
-/* 文章描述 */
-.article-description {
-  margin: 16px 0;
-  color: var(--nord-text-description);
-}
-
-.meta-line {
-  margin-bottom: 0;
+.article-list-item:not(:last-child) {
+  @apply mb-3;
 }
 </style>

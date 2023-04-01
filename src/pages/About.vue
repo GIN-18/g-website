@@ -1,5 +1,5 @@
 <template>
-  <div id="about">
+  <div class="w-7/12">
     <SingleTitle>关于作者</SingleTitle>
     <div id="about-author">
       <div class="author-info">
@@ -26,9 +26,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.open-source {
-  margin-top: 16px;
-}
-</style>

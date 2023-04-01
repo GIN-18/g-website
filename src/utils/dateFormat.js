@@ -12,5 +12,5 @@ export function formatDate(timestamp) {
   var hours = addZero(date.getHours());
   var minutes = addZero(date.getMinutes());
 
-  return `${year}-${month}-${day} ${hours}:${minutes}`;
+  return `${year}/${month}/${day} ${hours}:${minutes}`;
 }

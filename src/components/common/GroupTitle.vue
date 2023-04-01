@@ -1,6 +1,13 @@
 <template>
-  <h3 class="group-title">
-    <slot></slot>
+  <h3
+    class="flex justify-start items-center mt-6 mb-3"
+  >
+    <span class="mr-2">
+      <slot name="icon"></slot>
+    </span>
+    <span class="text-xl font-semibold">
+      <slot name="info"></slot>
+    </span>
   </h3>
 </template>
 
@@ -9,11 +16,3 @@ export default {
   name: "GroupTitle",
 };
 </script>
-
-<style scoped>
-.group-title {
-  display: flex;
-  align-items: center;
-  margin: 1rem 0 calc(0.5rem - 2px);
-}
-</style>

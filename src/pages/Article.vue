@@ -1,15 +1,20 @@
 <template>
   <div v-show="showArticle">
     <!-- 文章标题 -->
-    <h1 class="title">{{ title }}</h1>
+    <h1 class="my-6 text-3xl font-semibold">{{ title }}</h1>
+
     <!-- 文章信息栏 -->
-    <ArticleMetaLine
-      :created="created"
-      :updated="updated"
-      :tag="tag"
-    ></ArticleMetaLine>
+    <PageMetaLine>
+      <ArticleMetaLine
+        :created="created"
+        :updated="updated"
+        :tag="tag"
+      ></ArticleMetaLine>
+    </PageMetaLine>
+
     <!-- 文章内容 -->
     <article class="content" v-html="content"></article>
+
     <!-- 赞赏按钮 -->
     <BuyMeACoffee></BuyMeACoffee>
   </div>
@@ -17,14 +22,17 @@
 
 <script>
 import axios from "axios";
+import { showPage } from "@/utils/showPage";
 import markdownConversion from "@/utils/markdownConversion";
 
 import ArticleMetaLine from "@/components/main/article/ArticleMetaLine";
+import PageMetaLine from "@/components/common/PageMetaLine";
 import BuyMeACoffee from "@/components/common/BuyMeACoffee";
 
 export default {
   name: "Article",
   components: {
+    PageMetaLine,
     ArticleMetaLine,
     BuyMeACoffee,
   },
@@ -48,7 +56,7 @@ export default {
       .then((res) => {
         var { title, tag, created, updated, content } = res.data.data;
         // 请求到数据后再渲染页面
-        this.showArticle = Object.keys(res.data.data).length > 0 ? true : false;
+        this.showArticle = showPage(res.data.data);
         this.title = title;
         this.tag = tag;
         this.created = created;
@@ -63,12 +71,4 @@ export default {
 /* 引入文章样式 */
 @import "@/assets/style/article/markdown.css";
 @import "@catppuccin/highlightjs/css/catppuccin-frappe.css";
-
-.title {
-  margin: 32px 0 8px;
-}
-
-.table-of-contents ::marker {
-  color: var(--nord-text-link);
-}
 </style>

@@ -1,13 +1,13 @@
 <template>
-  <div class="open-source-project item-bigger">
-    <img :src="imageUrl" />
-    <div class="project-info">
+  <div class="break-inside-avoid">
+    <img class="rounded-t-md" :src="imageUrl" />
+    <div class="p-3 rounded-b-md bg-ctp-crust">
       <a :href="projectUrl">
-        <h4 class="project-name">
+        <h4 class="text-lg font-semibold">
           <slot name="project-name"></slot>
         </h4>
       </a>
-      <p class="project-description">
+      <p class="text-ctp-subtext0">
         <slot name="project-description"></slot>
       </p>
     </div>
@@ -20,27 +20,3 @@ export default {
   props: ["imageUrl", "projectUrl"],
 };
 </script>
-
-<style>
-.open-source-project {
-  break-inside: avoid;
-  margin-bottom: 10px;
-  border-radius: 6px;
-}
-
-.open-source-project img {
-  width: 100%;
-  border-radius: 6px 6px 0 0;
-  vertical-align: middle;
-}
-
-.project-info {
-  padding: 16px;
-  border-radius: 0 0 6px 6px;
-  background-color: var(--nord-bg-quaternary);
-}
-
-.project-description {
-  font-size: 14px;
-}
-</style>

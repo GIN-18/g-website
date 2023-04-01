@@ -1,6 +1,6 @@
 <template>
-  <span class="meta-line-item">
-    <span>
+  <span class="metaline-item flex items-center text-ctp-overlay1">
+    <span class="mr-1">
       <slot name="icon"></slot>
     </span>
     <span>
@@ -16,18 +16,7 @@ export default {
 </script>
 
 <style scoped>
-.meta-line-item {
-  display: flex;
-  align-items: center;
-  color: var(--nord-text-meta);
-  font-size: 14px;
-}
-.meta-line-item  span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.meta-line-item:not(:first-child) {
-  margin-left: 12px;
+.metaline-item:not(:last-child) {
+  @apply mr-5;
 }
 </style>

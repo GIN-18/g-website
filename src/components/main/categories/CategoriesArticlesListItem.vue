@@ -1,21 +1,24 @@
 <template>
-  <div class="categories-articles-list-item">
-    <header class="header-of-category-item">
+  <div class="border-2 border-ctp-subtext0 rounded-md">
+    <header
+      class="flex justify-between p-3 border-b-2 border-ctp-subtext0 text-ctp-text text-lg font-semibold"
+    >
       <h3 class="category-name">{{ category }}</h3>
       <span class="sum-of-category-item"
         >共 {{ categoryArticles.length }} 篇</span
       >
     </header>
-    <div class="category-articles-list">
-      <router-link
-        class="category-articles-list-item"
+    <ul class="p-3 pb-0">
+      <li
+        class="pb-3 link-hover"
         v-for="(article, index) in categoryArticles"
         :key="index"
-        :to="`/article/${article._id}`"
       >
-        {{ article.title }}
-      </router-link>
-    </div>
+        <router-link :to="`/article/${article._id}`">
+          {{ article.title }}
+        </router-link>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -43,32 +46,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.categories-articles-list-item {
-  margin: 0 0 8px;
-  border: 1px solid var(--nord-border-primary);
-  border-radius: 6px;
-}
-
-/* 分类项头部 */
-.header-of-category-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px;
-  border-bottom: 1px solid var(--nord-border-primary);
-}
-
-/* 分类文章列表 */
-.category-articles-list {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  overflow: auto;
-  max-height: 160px;
-  height: 160px;
-  padding: 8px;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <div class="flex flex-col justify-between h-screen text-ctp-text bg-ctp-base">
     <Header></Header>
     <Main></Main>
     <Footer></Footer>
@@ -36,16 +36,6 @@ export default {
 </script>
 
 <style>
-/* 引入base.css */
+/* 引入tailwindcss/index.css */
 @import "@/assets/style/tailwindcss/index.css";
-@import "@/assets/style/common/base.css";
-
-#container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  line-height: 1.6;
-  color: var(--nord-text-primary);
-}
 </style>

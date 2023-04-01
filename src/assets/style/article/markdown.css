@@ -54,8 +54,7 @@ article hr {
   margin-top: 20px;
   margin-bottom: 20px;
   height: 0;
-  border: 0;
-  border-top: 1px solid var(--nord-border-primary);
+  @apply border-t border-ctp-subtext0;
 }
 /* 列表 */
 article ol ol,
@@ -106,6 +105,9 @@ article dl dd {
 article dl dd p {
   margin-bottom: 0.8em;
 }
+article li::marker {
+  @apply text-ctp-sky;
+}
 /* 表格 */
 article table {
   display: block;
@@ -117,16 +119,16 @@ article table {
   border-spacing: 0;
 }
 article table tr {
-  border-top: 1px solid var(--nord-border-primary);
-  background-color: var(--nord-bg-primary);
+  @apply border-t border-ctp-subtext0;
+  @apply bg-ctp-base;
 }
 article table tr:nth-child(2n) {
-  background-color: var(--nord-bg-tertiary);
+  @apply bg-ctp-crust;
 }
 article table th,
 article table td {
   padding: 6px 15px;
-  border: 1px solid var(--nord-border-primary);
+  @apply border-t border-ctp-subtext0;
   vertical-align: top;
 }
 /* 代码 */
@@ -136,7 +138,7 @@ article pre {
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  background-color: var(--nord-bg-tertiary);
+  @apply bg-ctp-mantle;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
@@ -165,7 +167,7 @@ article code {
   padding-bottom: 0.2em;
   margin: 0;
   font-size: 85%;
-  background-color: var(--nord-bg-quaternary);
+  @apply bg-ctp-crust text-ctp-maroon;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }
@@ -176,7 +178,7 @@ article code:after {
 }
 /* 链接，图片，文本 */
 article a {
-  color: var(--nord-text-link) !important;
+  @apply text-ctp-sky;
   background: transparent;
 }
 article img {

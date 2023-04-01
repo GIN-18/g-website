@@ -7,6 +7,7 @@
       :title="article.title"
       :description="article.description"
       :created="article.created"
+      :updated="article.updated"
       :tag="article.tag"
     ></ArticlesListItem>
   </div>
@@ -52,5 +53,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

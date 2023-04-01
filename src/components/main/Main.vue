@@ -1,5 +1,5 @@
 <template>
-  <main id="main">
+  <main class="flex flex-grow justify-center items-start">
     <router-view></router-view>
   </main>
 </template>
@@ -9,32 +9,3 @@ export default {
   name: "Main",
 };
 </script>
-
-<style scoped>
-#main {
-  flex: 1;
-  max-width: 56%;
-  min-width: 56%;
-  margin: auto;
-}
-
-@media (min-width: 1008px) {
-  #main {
-    max-width: 56%;
-    min-width: 56%;
-  }
-}
-@media (max-width: 1007px) {
-  #main {
-    max-width: 56%;
-    min-width: 56%;
-  }
-}
-@media (max-width: 640px) {
-  #main {
-    max-width: 100%;
-    min-width: 100%;
-    padding: 0 8px;
-  }
-}
-</style>

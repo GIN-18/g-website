@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="py-3">
     <Copyright></Copyright>
   </footer>
 </template>
@@ -14,12 +14,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 0;
-}
-</style>

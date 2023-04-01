@@ -1,5 +1,8 @@
 <template>
-  <router-link class="nav-item" :to="url">
+  <router-link
+    class="mr-6 link-hover"
+    :to="url"
+  >
     <slot></slot>
   </router-link>
 </template>
@@ -12,27 +15,7 @@ export default {
 </script>
 
 <style scoped>
-.nav-item {
-  margin-right: 16px;
-}
-
-.route-link-active {
-  font-weight: 600;
-}
-
-@media (min-width: 1008px) {
-  .nav-item:not(:last-child) {
-    margin-right: 16px;
-  }
-}
-@media (max-width: 1007px) {
-  .nav-item:not(:last-child) {
-    margin-right: 16px;
-  }
-}
-@media (max-width: 640px) {
-  .nav-item:not(:last-child) {
-    margin: 8px 0;
-  }
+.router-link-active {
+  @apply font-semibold;
 }
 </style>

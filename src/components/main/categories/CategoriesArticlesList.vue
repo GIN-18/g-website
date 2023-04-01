@@ -1,5 +1,5 @@
 <template>
-  <div class="categories-articles-list">
+  <div class="grid grid-cols-2 gap-3">
     <CategoriesArticlesListItem
       v-for="(category, index) in categories"
       :key="index"
@@ -19,26 +19,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.categories-articles-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-@media (min-width: 1008px) {
-  .categories-articles-list {
-    display: grid;
-  }
-}
-@media (max-width: 1007px) {
-  .categories-articles-list {
-    display: grid;
-  }
-}
-@media (max-width: 640px) {
-  .categories-articles-list {
-    display: block;
-  }
-}
-</style>

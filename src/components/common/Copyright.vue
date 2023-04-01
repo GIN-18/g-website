@@ -1,27 +1,27 @@
 <template>
-  <div id="copyright">
+  <div id="copyright" class="flex justify-center items-center text-sm">
     <span>Copyright</span>
-    <svg
-      t="1678852551469"
-      class="primary-icon"
-      viewBox="0 0 1024 1024"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-      p-id="20133"
-      width="14"
-      height="14"
-    >
-      <path
-        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64z m0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-        p-id="20134"
-        fill="#3B4252"
-      ></path>
-      <path
-        d="M517.6 351.3c53 0 89 33.8 93 83.4 0.3 4.2 3.8 7.4 8 7.4h56.7c2.6 0 4.7-2.1 4.7-4.7 0-86.7-68.4-147.4-162.7-147.4C407.4 290 344 364.2 344 486.8v52.3C344 660.8 407.4 734 517.3 734c94 0 162.7-58.8 162.7-141.4 0-2.6-2.1-4.7-4.7-4.7h-56.8c-4.2 0-7.6 3.2-8 7.3-4.2 46.1-40.1 77.8-93 77.8-65.3 0-102.1-47.9-102.1-133.6v-52.6c0.1-87 37-135.5 102.2-135.5z"
-        p-id="20135"
-        fill="#3B4252"
-      ></path>
-    </svg>
+    <span>
+      <svg
+        t="1678852551469"
+        class="fill-current"
+        viewBox="0 0 1024 1024"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        p-id="20133"
+        width="14"
+        height="14"
+      >
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64z m0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          p-id="20134"
+        ></path>
+        <path
+          d="M517.6 351.3c53 0 89 33.8 93 83.4 0.3 4.2 3.8 7.4 8 7.4h56.7c2.6 0 4.7-2.1 4.7-4.7 0-86.7-68.4-147.4-162.7-147.4C407.4 290 344 364.2 344 486.8v52.3C344 660.8 407.4 734 517.3 734c94 0 162.7-58.8 162.7-141.4 0-2.6-2.1-4.7-4.7-4.7h-56.8c-4.2 0-7.6 3.2-8 7.3-4.2 46.1-40.1 77.8-93 77.8-65.3 0-102.1-47.9-102.1-133.6v-52.6c0.1-87 37-135.5 102.2-135.5z"
+          p-id="20135"
+        ></path>
+      </svg>
+    </span>
     <span>{{ date }}</span>
     <span>By</span>
     <span>{{ username }}</span>
@@ -43,13 +43,10 @@ export default {
 </script>
 
 <style scoped>
-#copyright {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
+#copyright span {
+  @apply mr-2;
 }
-#copyright span:not(:last-child) {
-  margin-right: 6px;
+#copyright span:last-child {
+  @apply mr-0;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div id="tag-list">
+  <div class="mb-3">
     <TagListItem v-for="(tag, index) in tagList" :key="index" :tag="tag">{{
       tag
     }}</TagListItem>
@@ -17,10 +17,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-#tag-list {
-  display: flex;
-  align-items: center;
-}
-</style>

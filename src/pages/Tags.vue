@@ -1,10 +1,13 @@
 <template>
-  <div id="tags">
+  <div class="w-7/12">
     <SingleTitle>所有标签</SingleTitle>
+
     <!-- 标签总数 -->
     <TagsPageMetaLine :sumOfTags="tags.length"></TagsPageMetaLine>
+
     <!-- 标签列表 -->
     <TagList :tagList="tags"></TagList>
+
     <!-- 展示根据标签查找到的文章 -->
     <router-view></router-view>
   </div>

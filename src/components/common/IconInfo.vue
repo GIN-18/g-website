@@ -1,6 +1,6 @@
 <template>
-  <div class="icon-info">
-    <span>
+  <div class="flex items-center">
+    <span class="mr-2">
       <slot name="icon"></slot>
     </span>
     <span>
@@ -14,15 +14,3 @@ export default {
   name: "IconInfo",
 };
 </script>
-
-<style scoped>
-.icon-info {
-  display: flex;
-  align-items: center;
-}
-.icon-info span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-</style>

@@ -1,12 +1,11 @@
 <template>
-  <a class="mr-6" :href="url">
+  <div class="mb-2">
     <slot></slot>
-  </a>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "SocialIcon",
-  props: ["url"],
+  name: "PageMetaLine",
 };
 </script>

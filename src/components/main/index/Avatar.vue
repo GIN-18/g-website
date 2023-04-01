@@ -1,5 +1,10 @@
 <template>
-  <img id="avatar" :style="imageWidth" :src="avatarUrl" alt="avatar" />
+  <img
+    class="border-2 border-ctp-subtext0 rounded-full"
+    :style="imageWidth"
+    :src="avatarSrc"
+    alt="avatar"
+  />
 </template>
 
 <script>
@@ -7,20 +12,12 @@ export default {
   name: "Avatar",
   props: ["width"],
   computed: {
-    avatarUrl() {
+    avatarSrc() {
       return `https://website.cms.gin-18.top${this.$store.state.user.avatar}`;
     },
     imageWidth() {
-      return {"width": `${this.width}rem`};
+      return { width: `${this.width}rem` };
     },
   },
 };
 </script>
-
-<style scoped>
-#avatar {
-  border: 2px solid var(--nord-text-primary);
-  border-radius: 50%;
-  vertical-align: middle;
-}
-</style>

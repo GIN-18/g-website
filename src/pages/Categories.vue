@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <div class="w-7/12">
     <SingleTitle>所有分类</SingleTitle>
+
     <!-- 分类总数 -->
     <CategoriesPageMetaLine
       :sumOfCategories="categories.length"
     ></CategoriesPageMetaLine>
+
     <!-- 文章列表 -->
     <CategoriesArticlesList :categories="categories"></CategoriesArticlesList>
   </div>
