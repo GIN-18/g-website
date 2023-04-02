@@ -36,15 +36,11 @@ export default {
     });
   },
   beforeRouteUpdate(to, from, next) {
-    axios
-      .get("https://website.cms.gin-18.top/api/article/getArticleByTag", {
-        params: {
-          tag: to.params.tag,
-        },
-      })
-      .then((res) => {
-        this.tags_articles = res.data.data;
-      });
+    getArticlesByTag({
+      tag: to.params.tag,
+    }).then((res) => {
+      this.tags_articles = res.data;
+    });
     next();
   },
 };

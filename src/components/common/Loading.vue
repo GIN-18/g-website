@@ -1,26 +1,222 @@
 <template>
-  <span class="self-center">
-    <svg
-      class="animate-spin"
-      t="1680234522020"
-      viewBox="0 0 1024 1024"
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-      p-id="2644"
-      width="32"
-      height="32"
-    >
-      <path
-        d="M298.666667 512a42.666667 42.666667 0 0 0-42.666667-42.666667H85.333333a42.666667 42.666667 0 0 0 0 85.333334h170.666667a42.666667 42.666667 0 0 0 42.666667-42.666667z m640-42.666667H768a42.666667 42.666667 0 0 0 0 85.333334h170.666667a42.666667 42.666667 0 0 0 0-85.333334zM512 42.666667a42.666667 42.666667 0 0 0-42.666667 42.666666v170.666667a42.666667 42.666667 0 0 0 85.333334 0V85.333333a42.666667 42.666667 0 0 0-42.666667-42.666666z m0 682.666666a42.666667 42.666667 0 0 0-42.666667 42.666667v170.666667a42.666667 42.666667 0 0 0 85.333334 0V768a42.666667 42.666667 0 0 0-42.666667-42.666667z m-211.2-62.474666L180.149333 783.52a42.666667 42.666667 0 1 0 60.330667 60.352l120.672-120.682667a42.645333 42.645333 0 0 0-0.010667-60.330666 42.656 42.656 0 0 0-60.341333 0z m422.4-301.706667l120.661333-120.661333a42.677333 42.677333 0 0 0 0.010667-60.341334h-0.010667a42.613333 42.613333 0 0 0-60.288-0.010666l-0.010666 0.010666-120.704 120.661334a42.666667 42.666667 0 0 0 60.341333 60.341333zM240.469333 180.128a42.645333 42.645333 0 0 0-60.330666-0.672 42.645333 42.645333 0 0 0-0.672 60.330667l0.672 0.672L300.8 361.152a42.677333 42.677333 0 0 0 60.341333-60.341333L240.469333 180.128zM723.2 662.858667a42.666667 42.666667 0 0 0-60.341333 60.330666l120.672 120.682667a42.624 42.624 0 0 0 60.298666 0.010667l0.021334-0.010667a42.698667 42.698667 0 0 0 0-60.352L723.2 662.858667z"
-        p-id="2645"
-        fill="#6c6f85"
-      ></path>
-    </svg>
-  </span>
+  <div class="com__box">
+    <!-- loading -->
+    <div class="loading">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
 </template>
 
-<script>
-export default {
-  name: "Loading",
-};
-</script>
+<style scoped>
+.loading,
+.loading > div {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.loading {
+  display: block;
+  font-size: 0;
+  color: #000;
+  margin: 30px;
+}
+
+.loading.la-dark {
+  color: #333;
+}
+
+.loading > div {
+  display: inline-block;
+  float: none;
+  background-color: currentColor;
+  border: 0 solid currentColor;
+}
+
+.loading {
+  width: 18px;
+  height: 18px;
+}
+
+.loading > div {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 0;
+  opacity: 0;
+  transform: translate(100%, 100%);
+  animation: ball-8bits 1s 0s ease infinite;
+}
+
+.loading > div:nth-child(1) {
+  animation-delay: -0.9375s;
+}
+
+.loading > div:nth-child(2) {
+  animation-delay: -0.875s;
+}
+
+.loading > div:nth-child(3) {
+  animation-delay: -0.8125s;
+}
+
+.loading > div:nth-child(4) {
+  animation-delay: -0.75s;
+}
+
+.loading > div:nth-child(5) {
+  animation-delay: -0.6875s;
+}
+
+.loading > div:nth-child(6) {
+  animation-delay: -0.625s;
+}
+
+.loading > div:nth-child(7) {
+  animation-delay: -0.5625s;
+}
+
+.loading > div:nth-child(8) {
+  animation-delay: -0.5s;
+}
+
+.loading > div:nth-child(9) {
+  animation-delay: -0.4375s;
+}
+
+.loading > div:nth-child(10) {
+  animation-delay: -0.375s;
+}
+
+.loading > div:nth-child(11) {
+  animation-delay: -0.3125s;
+}
+
+.loading > div:nth-child(12) {
+  animation-delay: -0.25s;
+}
+
+.loading > div:nth-child(13) {
+  animation-delay: -0.1875s;
+}
+
+.loading > div:nth-child(14) {
+  animation-delay: -0.125s;
+}
+
+.loading > div:nth-child(15) {
+  animation-delay: -0.0625s;
+}
+
+.loading > div:nth-child(16) {
+  animation-delay: 0s;
+}
+
+.loading > div:nth-child(1) {
+  top: -100%;
+  left: 0;
+}
+
+.loading > div:nth-child(2) {
+  top: -100%;
+  left: 33.3333333333%;
+}
+
+.loading > div:nth-child(3) {
+  top: -66.6666666667%;
+  left: 66.6666666667%;
+}
+
+.loading > div:nth-child(4) {
+  top: -33.3333333333%;
+  left: 100%;
+}
+
+.loading > div:nth-child(5) {
+  top: 0;
+  left: 100%;
+}
+
+.loading > div:nth-child(6) {
+  top: 33.3333333333%;
+  left: 100%;
+}
+
+.loading > div:nth-child(7) {
+  top: 66.6666666667%;
+  left: 66.6666666667%;
+}
+
+.loading > div:nth-child(8) {
+  top: 100%;
+  left: 33.3333333333%;
+}
+
+.loading > div:nth-child(9) {
+  top: 100%;
+  left: 0;
+}
+
+.loading > div:nth-child(10) {
+  top: 100%;
+  left: -33.3333333333%;
+}
+
+.loading > div:nth-child(11) {
+  top: 66.6666666667%;
+  left: -66.6666666667%;
+}
+
+.loading > div:nth-child(12) {
+  top: 33.3333333333%;
+  left: -100%;
+}
+
+.loading > div:nth-child(13) {
+  top: 0;
+  left: -100%;
+}
+
+.loading > div:nth-child(14) {
+  top: -33.3333333333%;
+  left: -100%;
+}
+
+.loading > div:nth-child(15) {
+  top: -66.6666666667%;
+  left: -66.6666666667%;
+}
+
+.loading > div:nth-child(16) {
+  top: -100%;
+  left: -33.3333333333%;
+}
+
+@keyframes ball-8bits {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  51% {
+    opacity: 0;
+  }
+}
+</style>

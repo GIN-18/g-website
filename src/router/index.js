@@ -19,18 +19,30 @@ var router = new VueRouter({
     {
       path: "/",
       component: Index,
+      meta: {
+        title: "首页",
+      },
     },
     {
       path: "/articles",
       component: Articles,
+      meta: {
+        title: "所有文章",
+      },
     },
     {
       path: "/article/:id",
       component: Article,
+      meta: {
+        title: "文章",
+      },
     },
     {
       path: "/tags",
       component: Tags,
+      meta: {
+        title: "所有标签",
+      },
       children: [
         {
           path: "/tags/:tag",
@@ -41,16 +53,33 @@ var router = new VueRouter({
     {
       path: "/categories",
       component: Categories,
+      meta: {
+        title: "所有分类",
+      },
     },
     {
       path: "/docs",
       component: Docs,
+      meta: {
+        title: "文章归档",
+      },
     },
     {
       path: "/about",
       component: About,
+      meta: {
+        title: "关于作者",
+      },
     },
   ],
+});
+
+router.beforeEach((to, from, next) => {
+  var pageTitle = to.meta.title;
+  if (pageTitle) {
+    document.title = to.meta.title;
+  }
+  next();
 });
 
 export default router;
