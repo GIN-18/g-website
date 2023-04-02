@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { getUser } from "@/request/app";
 
 // 引入组件
 import Header from "@/components/header/Header";
@@ -22,15 +22,9 @@ export default {
     Footer,
   },
   created() {
-    axios
-      .get("https://website.cms.gin-18.top/api/user", {
-        params: {
-          id: "63ad2586b9410d7b61a65764",
-        },
-      })
-      .then((res) => {
-        this.$store.state.user = res.data.data;
-      });
+    getUser().then((res) => {
+      this.$store.state.user = res.data;
+    });
   },
 };
 </script>

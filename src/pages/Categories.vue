@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { getAllCategories } from "@/request/categories";
 
 import SingleTitle from "@/components/common/SingleTitle";
 import CategoriesPageMetaLine from "@/components/main/categories/CategoriesPageMetaLine";
@@ -32,11 +32,9 @@ export default {
     };
   },
   created() {
-    axios
-      .get("https://website.cms.gin-18.top/api/article/getAllCategory")
-      .then((res) => {
-        this.categories = res.data.data;
-      });
+    getAllCategories().then((res) => {
+      this.categories = res.data;
+    });
   },
 };
 </script>

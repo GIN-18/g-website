@@ -85,7 +85,7 @@
         </svg>
       </template>
       <template v-slot:info>
-        <a :href="$store.state.user.github">GIN-18</a>
+        <a class="link-hover" :href="$store.state.user.github">GIN-18</a>
       </template>
     </IconInfo>
     <IconInfo>
@@ -107,7 +107,7 @@
         </svg>
       </template>
       <template v-slot:info>
-        <a :href="$store.state.user.csdn">CSDN</a>
+        <a class="link-hover" :href="$store.state.user.csdn">CSDN</a>
       </template>
     </IconInfo>
   </div>

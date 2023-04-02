@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { getAllProjects } from "@/request/about";
 
 import GroupTitle from "@/components/common/GroupTitle";
 import OpenSourceItem from "@/components/main/about/open_source/OpenSourceItem";
@@ -58,11 +58,9 @@ export default {
     };
   },
   created() {
-    axios
-      .get("https://website.cms.gin-18.top/api/opensource/getAllProject")
-      .then((res) => {
-        this.projects = res.data.data;
-      });
+    getAllProjects().then((res) => {
+      this.projects = res.data;
+    });
   },
 };
 </script>

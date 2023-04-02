@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { getAllTags } from "@/request/tags";
 
 import SingleTitle from "@/components/common/SingleTitle";
 import TagsPageMetaLine from "@/components/main/tags/TagsPageMetaLine";
@@ -33,12 +33,10 @@ export default {
     };
   },
   created() {
-    axios
-      .get("https://website.cms.gin-18.top/api/article/getAllTag")
-      .then((res) => {
-        // 数组去重
-        this.tags = Array.from(new Set(res.data.data));
-      });
+    getAllTags().then((res) => {
+      // 数组去重
+      this.tags = Array.from(new Set(res.data));
+    });
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div v-show="showArticle">
+  <div>
     <!-- 文章标题 -->
     <h1 class="my-6 text-3xl font-semibold">{{ title }}</h1>
 
@@ -21,8 +21,7 @@
 </template>
 
 <script>
-import axios from "axios";
-import { showPage } from "@/utils/showPage";
+import { getArticleById } from "@/request/article";
 import markdownConversion from "@/utils/markdownConversion";
 
 import ArticleMetaLine from "@/components/main/article/ArticleMetaLine";
@@ -38,7 +37,6 @@ export default {
   },
   data() {
     return {
-      showArticle: false,
       title: "",
       tag: "",
       created: "",
@@ -47,22 +45,17 @@ export default {
     };
   },
   created() {
-    axios
-      .get("https://website.cms.gin-18.top/api/article/getArticleById", {
-        params: {
-          id: this.$route.params.id,
-        },
-      })
-      .then((res) => {
-        var { title, tag, created, updated, content } = res.data.data;
-        // 请求到数据后再渲染页面
-        this.showArticle = showPage(res.data.data);
-        this.title = title;
-        this.tag = tag;
-        this.created = created;
-        this.updated = updated;
-        this.content = markdownConversion.markdownToHtml(content);
-      });
+    getArticleById({
+      id: this.$route.params.id,
+    }).then((res) => {
+      var { title, tag, created, updated, content } = res.data;
+      // 请求到数据后再渲染页面
+      this.title = title;
+      this.tag = tag;
+      this.created = created;
+      this.updated = updated;
+      this.content = markdownConversion.markdownToHtml(content);
+    });
   },
 };
 </script>

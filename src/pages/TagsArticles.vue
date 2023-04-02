@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { getArticlesByTag } from "@/request/tags";
 
 import ArticlesListItem from "@/components/main/articles/ArticlesListItem";
 
@@ -29,15 +29,11 @@ export default {
     };
   },
   created() {
-    axios
-      .get("https://website.cms.gin-18.top/api/article/getArticleByTag", {
-        params: {
-          tag: this.$route.params.tag,
-        },
-      })
-      .then((res) => {
-        this.tags_articles = res.data.data;
-      });
+    getArticlesByTag({
+      tag: this.$route.params.tag,
+    }).then((res) => {
+      this.tags_articles = res.data;
+    });
   },
   beforeRouteUpdate(to, from, next) {
     axios

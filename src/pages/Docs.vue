@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { getAllYears } from "@/request/docs";
 
 import SingleTitle from "@/components/common/SingleTitle";
 import DocItem from "@/components/main/docs/DocItem";
@@ -23,11 +23,9 @@ export default {
     };
   },
   created() {
-    axios
-      .get("https://website.cms.gin-18.top/api/article/getAllYears")
-      .then((res) => {
-        this.years = res.data.data;
-      });
+    getAllYears().then((res) => {
+      this.years = res.data;
+    });
   },
 };
 </script>

@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { getArticlesByYear } from "@/request/docs";
 
 import GroupTitle from "@/components/common/GroupTitle";
 
@@ -71,15 +71,11 @@ export default {
     },
   },
   created() {
-    axios
-      .get("https://website.cms.gin-18.top/api/article/getArticleByYear", {
-        params: {
-          year: this.year,
-        },
-      })
-      .then((res) => {
-        this.docItemList = res.data.data;
-      });
+    getArticlesByYear({
+      year: this.year,
+    }).then((res) => {
+      this.docItemList = res.data;
+    });
   },
 };
 </script>

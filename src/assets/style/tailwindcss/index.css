@@ -6,6 +6,9 @@
   html {
     @apply bg-ctp-base;
   }
+  ::-webkit-scrollbar {
+    @apply w-0 h-0;
+  }
 }
 
 @layer components {

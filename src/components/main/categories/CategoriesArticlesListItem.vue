@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { getArticlesByCategory } from "@/request/categories";
 
 export default {
   name: "CategoriesArticlesListItem",
@@ -34,15 +34,11 @@ export default {
     };
   },
   created() {
-    axios
-      .get("https://website.cms.gin-18.top/api/article/getArticleByCategory", {
-        params: {
-          category: this.category,
-        },
-      })
-      .then((res) => {
-        this.categoryArticles = res.data.data;
-      });
+    getArticlesByCategory({
+      category: this.category,
+    }).then((res) => {
+      this.categoryArticles = res.data;
+    });
   },
 };
 </script>
