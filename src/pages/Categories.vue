@@ -1,5 +1,5 @@
 <template>
-  <div class="w-7/12">
+  <div class="w-full px-3">
     <SingleTitle>所有分类</SingleTitle>
 
     <!-- 分类总数 -->

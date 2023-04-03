@@ -1,5 +1,5 @@
 <template>
-  <div id="mobile-menu">
+  <div class="fixed top-12 left-0 flex flex-col justify-center items-center w-full py-2 bg-ctp-mantle">
     <Nav></Nav>
     <Theme></Theme>
   </div>
@@ -17,17 +17,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-#mobile-menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 50px;
-  left: 0;
-  width: 100%;
-  background-color: var(--nord-bg-secondary);
-}
-</style>

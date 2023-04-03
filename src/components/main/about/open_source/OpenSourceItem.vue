@@ -1,5 +1,5 @@
 <template>
-  <div class="break-inside-avoid">
+  <div class="opensource-item break-inside-avoid">
     <img class="rounded-t-md" :src="imageUrl" />
     <div class="p-3 rounded-b-md bg-ctp-crust">
       <a :href="projectUrl">
@@ -20,3 +20,9 @@ export default {
   props: ["imageUrl", "projectUrl"],
 };
 </script>
+
+<style scoped>
+.opensource-item:not(:last-child) {
+  @apply mb-3;
+}
+</style>

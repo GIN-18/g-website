@@ -1,6 +1,6 @@
 <template>
   <div
-    class="article-list-item p-6 border-2 border-ctp-subtext0 rounded-md"
+    class="article-list-item p-3 border-2 border-ctp-subtext0 rounded-md"
   >
     <!-- 文章标题 -->
     <router-link

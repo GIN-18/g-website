@@ -1,5 +1,5 @@
 <template>
-  <span class="metaline-item flex items-center text-ctp-overlay1">
+  <span class="metaline-item flex items-center text-ctp-overlay1 whitespace-nowrap">
     <span class="mr-1">
       <slot name="icon"></slot>
     </span>

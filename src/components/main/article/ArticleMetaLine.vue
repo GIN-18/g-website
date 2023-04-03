@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-start items-center text-sm">
+  <div class="flex justify-start items-center text-sm overflow-x-auto">
     <!-- 发布时间 -->
     <MetaLineItem>
       <template v-slot:icon>

@@ -22,7 +22,7 @@
     </GroupTitle>
 
     <!-- 开源项目列表 -->
-    <div class="grid grid-cols-2 gap-3">
+    <div class="">
       <OpenSourceItem
         v-for="(project, index) in projects"
         :key="index"

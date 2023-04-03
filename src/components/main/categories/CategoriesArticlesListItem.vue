@@ -1,5 +1,7 @@
 <template>
-  <div class="border-2 border-ctp-subtext0 rounded-md">
+  <div
+    class="categories-articles-list-item border-2 border-ctp-subtext0 rounded-md"
+  >
     <header
       class="flex justify-between p-3 border-b-2 border-ctp-subtext0 text-ctp-text text-lg font-semibold"
     >
@@ -42,3 +44,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.categories-articles-list-item:not(:last-child) {
+  @apply mb-3;
+}
+</style>

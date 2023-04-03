@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-2 gap-3">
+  <div>
     <CategoriesArticlesListItem
       v-for="(category, index) in categories"
       :key="index"
