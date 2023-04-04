@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-3">
+  <div class="w-full px-3 sm:w-7/12">
     <SingleTitle>所有标签</SingleTitle>
 
     <!-- 标签总数 -->

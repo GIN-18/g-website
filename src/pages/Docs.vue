@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-3">
+  <div class="w-full px-3 sm:w-7/12">
     <SingleTitle>归档</SingleTitle>
     <DocItem v-for="(year, index) in years" :key="index" :year="year"></DocItem>
   </div>

@@ -10,6 +10,6 @@
 
 @layer components {
   .link-hover {
-    @apply transition-colors duration-500 hover:text-ctp-sky;
+    @apply transition-colors duration-500 hover:text-ctp-blue fill-ctp-blue;
   }
 }

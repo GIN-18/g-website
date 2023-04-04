@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-3">
+  <div class="w-full px-3 sm:w-7/12">
     <!-- 文章标题 -->
     <h1 class="my-6 text-3xl font-semibold">{{ title }}</h1>
 

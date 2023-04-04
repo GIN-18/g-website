@@ -1,5 +1,5 @@
 <template>
-  <header class="fixed top-0 left-0 flex justify-between items-center w-full h-12 px-3 bg-ctp-mantle">
+  <header class="z-10 fixed top-0 left-0 flex justify-between items-center w-full h-12 px-3 bg-ctp-mantle sm:px-16">
     <Logo></Logo>
     <Menu></Menu>
     <MobileMenuButton></MobileMenuButton>

@@ -1,5 +1,5 @@
 <template>
-  <div class="self-center flex flex-col justify-center items-center">
+  <div class="self-center flex flex-col justify-center items-center sm:w-7/12">
     <Avatar width="11"></Avatar>
     <Welcomes></Welcomes>
     <Social></Social>

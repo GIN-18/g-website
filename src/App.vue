@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="`${this.$store.state.flavour} flex flex-col justify-between h-screen text-ctp-text`"
+    :class="`${theme} flex flex-col justify-between h-screen text-ctp-text`"
   >
     <Header></Header>
     <Main></Main>
@@ -22,6 +22,11 @@ export default {
     Header,
     Main,
     Footer,
+  },
+  computed: {
+    theme() {
+      return this.$store.state.flavour;
+    }
   },
   created() {
     getUser().then((res) => {

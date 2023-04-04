@@ -1,5 +1,5 @@
 <template>
-  <div id="menu-bar">
+  <div class="hidden sm:flex items-center ">
     <Nav></Nav>
     <Theme></Theme>
   </div>
@@ -17,27 +17,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-#menu-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (min-width: 1008px) {
-  #menu-bar {
-    display: flex;
-  }
-}
-@media (max-width: 1007px) {
-  #menu-bar {
-    display: flex;
-  }
-}
-@media (max-width: 640px) {
-  #menu-bar {
-    display: none;
-  }
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <router-link class="p-2 link-hover" :to="url">
+  <router-link class="p-2 link-hover sm:p-5" :to="url">
     <slot></slot>
   </router-link>
 </template>

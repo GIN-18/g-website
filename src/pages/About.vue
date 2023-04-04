@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full px-3">
+  <div class="w-full px-3 sm:w-7/12">
     <SingleTitle>关于作者</SingleTitle>
     <div id="about-author">
       <div class="author-info">

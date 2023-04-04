@@ -79,6 +79,9 @@ router.beforeEach((to, from, next) => {
   if (pageTitle) {
     document.title = to.meta.title;
   }
+
+  window.scrollTo(0, 0);
+
   next();
 });
 
