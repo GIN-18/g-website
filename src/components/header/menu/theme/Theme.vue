@@ -48,10 +48,10 @@ export default {
   methods: {
     changeTheme() {
       this.isDark = !this.isDark;
-      if (this.isDark) {
-        window.document.documentElement.setAttribute("data-theme", "dark");
+      if (!this.$store.state.flavour) {
+        this.$store.dispatch("changeFlavour", "ctp-frappe");
       } else {
-        window.document.documentElement.setAttribute("data-theme", "");
+        this.$store.dispatch("changeFlavour", "");
       }
     },
   },

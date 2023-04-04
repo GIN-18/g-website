@@ -1,5 +1,7 @@
 <template>
-  <div class="flex flex-col justify-between h-screen text-ctp-text bg-ctp-base">
+  <div
+    :class="`${this.$store.state.flavour} flex flex-col justify-between h-screen text-ctp-text`"
+  >
     <Header></Header>
     <Main></Main>
     <Footer></Footer>

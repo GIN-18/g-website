@@ -6,16 +6,23 @@ Vue.use(Vuex);
 var store = new Vuex.Store({
   actions: {
     showMobileMenu(context) {
-      context.commit("showMobileMenu")
-    }
+      context.commit("showMobileMenu");
+    },
+    changeFlavour(context, data) {
+      context.commit("changeFlavour", data);
+    },
   },
   mutations: {
     showMobileMenu(state) {
       state.showMobileMenu = !state.showMobileMenu;
     },
+    changeFlavour(state, data) {
+      state.flavour = data;
+    },
   },
   state: {
     user: {},
+    flavour: "",
     showMobileMenu: false,
   },
 });

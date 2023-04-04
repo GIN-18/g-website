@@ -1,5 +1,5 @@
 <template>
-  <footer class="py-3">
+  <footer class="py-3 bg-ctp-base">
     <Copyright></Copyright>
   </footer>
 </template>
