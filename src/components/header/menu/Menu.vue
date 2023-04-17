@@ -1,5 +1,5 @@
 <template>
-  <div class="hidden sm:flex items-center ">
+  <div class="hidden sm:flex items-center">
     <Nav></Nav>
     <Theme></Theme>
   </div>

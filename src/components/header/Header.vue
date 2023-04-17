@@ -3,7 +3,7 @@
     <Logo></Logo>
     <Menu></Menu>
     <MobileMenuButton></MobileMenuButton>
-    <MobileMenu v-show="$store.state.showMobileMenu"></MobileMenu>
+    <MobileMenu></MobileMenu>
   </header>
 </template>
 

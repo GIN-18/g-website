@@ -8,16 +8,16 @@ var store = new Vuex.Store({
     showMobileMenu(context) {
       context.commit("showMobileMenu");
     },
-    changeFlavour(context, data) {
-      context.commit("changeFlavour", data);
+    changeFlavour(context, flavour) {
+      context.commit("changeFlavour", flavour);
     },
   },
   mutations: {
     showMobileMenu(state) {
       state.showMobileMenu = !state.showMobileMenu;
     },
-    changeFlavour(state, data) {
-      state.flavour = data;
+    changeFlavour(state, flavour) {
+      state.flavour = flavour;
     },
   },
   state: {

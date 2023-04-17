@@ -1,15 +1,18 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+// 引入 store 实例
+import store from "@/store/index";
+
 // 引入组件
-import Index from "@/pages/Index";
-import Articles from "@/pages/Articles";
-import TagsArticles from "@/pages/TagsArticles";
-import Article from "@/pages/Article";
-import Tags from "@/pages/Tags";
-import Categories from "@/pages/Categories";
-import Docs from "@/pages/Docs";
-import About from "@/pages/About";
+var Index = () => import("@/pages/Index");
+var Articles = () => import("@/pages/Articles");
+var TagsArticles = () => import("@/pages/TagsArticles");
+var Article = () => import("@/pages/Article");
+var Tags = () => import("@/pages/Tags");
+var Categories = () => import("@/pages/Categories");
+var Docs = () => import("@/pages/Docs");
+var About = () => import("@/pages/About");
 
 Vue.use(VueRouter);
 
@@ -81,6 +84,8 @@ router.beforeEach((to, from, next) => {
   }
 
   window.scrollTo(0, 0);
+
+  store.state.showMobileMenu = false;
 
   next();
 });

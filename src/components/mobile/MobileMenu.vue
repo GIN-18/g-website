@@ -1,5 +1,8 @@
 <template>
-  <div class="fixed top-12 left-0 flex flex-col justify-center items-center w-full py-2 bg-ctp-mantle">
+  <div
+    class="fixed top-12 left-0 flex flex-col justify-center items-center w-full py-2 bg-ctp-mantle"
+    v-show="$store.state.showMobileMenu"
+  >
     <Nav></Nav>
     <Theme></Theme>
   </div>
