@@ -5,3 +5,12 @@ export function getAllArticles() {
     url: "/article/getAllArticles"
   })
 }
+
+export function getArticlesByKeyword(keyword) {
+  return axios({
+    url: "/article/getArticlesByKeyword",
+    params: {
+      keyword
+    }
+  })
+}

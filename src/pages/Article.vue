@@ -57,6 +57,10 @@ export default {
       this.content = markdownConversion.markdownToHtml(content);
     });
   },
+  // TODO: 阅读文章页面，从搜索结果跳转
+  // beforeRouteUpdate(to, from, next) {
+  //   console.log(to);
+  // },
 };
 </script>
 

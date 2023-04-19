@@ -1,6 +1,10 @@
 <template>
   <!-- 显示按钮 -->
-  <button class="sm:hidden" @click="changeMobileMenuState" v-if="!$store.state.showMobileMenu">
+  <button
+    class="sm:hidden"
+    @click="changeMobileMenuState"
+    v-if="!$store.state.showMobileMenu"
+  >
     <svg
       t="1678610661661"
       class="fill-current"
@@ -43,6 +47,7 @@ export default {
   methods: {
     changeMobileMenuState() {
       this.$store.dispatch("showMobileMenu");
+      this.$store.dispatch("setShowSearchArticlesListToFalse");
     },
   },
 };

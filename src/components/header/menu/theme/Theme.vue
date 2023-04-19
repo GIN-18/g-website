@@ -1,6 +1,6 @@
 <template>
   <!-- 暗色主题 -->
-  <button class="self-center py-2 sm:p-2" @click="changeTheme" v-if="!isDark">
+  <button class="self-center pb-3 sm:p-3" @click="changeTheme" v-if="!isDark">
     <svg
       t="1678611862446"
       class="fill-current"
