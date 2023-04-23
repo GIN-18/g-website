@@ -1,6 +1,6 @@
 <template>
   <!-- 暗色主题 -->
-  <button class="self-center pb-3 sm:p-3" @click="changeTheme" v-if="!isDark">
+  <button class="w-full flex justify-center items-center pb-3 sm:p-3" @click="changeTheme" v-if="!isDark">
     <svg
       t="1678611862446"
       class="fill-current"
@@ -18,7 +18,7 @@
     </svg>
   </button>
   <!-- 亮色主题 -->
-  <button class="self-center py-2 sm:p-2" @click="changeTheme" v-else>
+  <button class="w-full flex justify-center items-center pb-3 sm:p-3" @click="changeTheme" v-else>
     <svg
       t="1678611791440"
       class="fill-current"
@@ -49,9 +49,9 @@ export default {
     changeTheme() {
       this.isDark = !this.isDark;
       if (!this.$store.state.flavour) {
-        this.$store.dispatch("changeFlavour", "ctp-frappe");
+        this.$store.commit("changeFlavour", "ctp-frappe");
       } else {
-        this.$store.dispatch("changeFlavour", "");
+        this.$store.commit("changeFlavour", "");
       }
     },
   },

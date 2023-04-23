@@ -1,7 +1,5 @@
 <template>
-  <div
-    :class="`${theme} flex flex-col justify-between h-screen text-ctp-text`"
-  >
+  <div :class="`${flavour} flex flex-col justify-between h-screen text-ctp-text`">
     <Header></Header>
     <Main></Main>
     <Footer></Footer>
@@ -9,7 +7,9 @@
 </template>
 
 <script>
-import { getUser } from "@/request/app";
+import { mapState } from "vuex";
+
+import { getUser } from "@/request/home";
 
 // 引入组件
 import Header from "@/components/header/Header";
@@ -24,9 +24,7 @@ export default {
     Footer,
   },
   computed: {
-    theme() {
-      return this.$store.state.flavour;
-    }
+    ...mapState(["flavour"]),
   },
   created() {
     getUser().then((res) => {

@@ -1,10 +1,6 @@
 <template>
   <!-- 显示按钮 -->
-  <button
-    class="sm:hidden"
-    @click="changeMobileMenuState"
-    v-if="!$store.state.showMobileMenu"
-  >
+  <button class="sm:hidden" v-if="!isMenu" @click="showMobileMenu">
     <svg
       t="1678610661661"
       class="fill-current"
@@ -22,7 +18,7 @@
     </svg>
   </button>
   <!-- 取消按钮 -->
-  <button class="sm:hidden" @click="changeMobileMenuState" v-else>
+  <button class="sm:hidden" v-else @click="showMobileMenu">
     <svg
       t="1678610592745"
       class="fill-current"
@@ -42,13 +38,15 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
+
 export default {
-  name: "MobileMenu",
+  name: "MobileMenuButton",
+  computed: {
+    ...mapState({ isMenu: "showMobileMenu" }),
+  },
   methods: {
-    changeMobileMenuState() {
-      this.$store.dispatch("showMobileMenu");
-      this.$store.dispatch("setShowSearchArticlesListToFalse");
-    },
+    ...mapMutations(["showMobileMenu"])
   },
 };
 </script>
