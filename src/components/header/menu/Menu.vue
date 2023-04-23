@@ -5,8 +5,9 @@
     v-show="showMobileMenu"
   >
     <Search></Search>
-    <Navbar></Navbar>
-    <Theme></Theme>
+    <SearchArticlesList></SearchArticlesList>
+    <Navbar v-show="focusToHide"></Navbar>
+    <Theme v-show="focusToHide"></Theme>
   </div>
 </template>
 
@@ -14,6 +15,7 @@
 import { mapState } from "vuex";
 
 import Search from "@/components/header/menu/search/Search";
+import SearchArticlesList from "@/components/main/articles/SearchArticlesList";
 import Navbar from "@/components/header/menu/navbar/Navbar";
 import Theme from "@/components/header/menu/theme/Theme";
 
@@ -21,11 +23,12 @@ export default {
   name: "Menu",
   components: {
     Search,
+    SearchArticlesList,
     Navbar,
     Theme,
   },
   computed: {
-    ...mapState(["showMobileMenu"]),
+    ...mapState(["showMobileMenu", "focusToHide"]),
   },
 };
 </script>

@@ -87,7 +87,7 @@ router.beforeEach((to, from, next) => {
 
   // XXX: 移动端的菜单栏显示后再改变页面宽度，移动端菜单栏仍显示
   store.state.showMobileMenu = false;
-  store.state.showSearchArticlesList = false;
+  // store.state.showSearchArticlesList = false;
 
   next();
 });

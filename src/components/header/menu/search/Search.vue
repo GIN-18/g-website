@@ -25,9 +25,9 @@
         placeholder="请输入文章标题或内容"
         ref="searchInput"
         v-model="searchInputValue"
-        @keydown.enter="search"
-        @focus="focusToHide"
-        @blur="focusToHide"
+        @keydown.enter="searchArticles(searchInputValue)"
+        @focus="setFocusToHide(false)"
+        @blur="setFocusToHide(true)"
       />
       <!-- 清除按钮 -->
       <button
@@ -111,12 +111,11 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapActions, mapMutations } from "vuex";
 
-import { getArticlesByKeyword } from "@/request/articles";
 
 export default {
-  name: "MobileSearch",
+  name: "Search",
   data() {
     return {
       showClearButton: false,
@@ -136,21 +135,18 @@ export default {
     },
   },
   methods: {
-    search(e) {
-      getArticlesByKeyword(e.target.value).then((res) => {
-        this.$store.state.searchArticles = res.data;
-      });
-    },
+    // 搜索文章
+    ...mapActions(["searchArticles"]),
+
     // 清除搜索框中的内容
     clearSearchInputValue() {
       this.searchInputValue = "";
       this.$refs.searchInput.focus();
     },
+
     // 移动端方法
     // 搜索框获得焦点时，隐藏菜单栏
-    focusToHide() {
-      this.$store.dispatch("focusToHide");
-    },
+    ...mapMutations(["setFocusToHide"]),
 
     // pc端方法
     // 隐藏或显示搜索框
