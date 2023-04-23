@@ -53,20 +53,20 @@
       </button>
     </div>
     <!-- pc端搜索框 -->
-    <div class="hidden sm:flex sm:justify-center sm:items-center sm:ml-3">
+    <div class="hidden sm:flex sm:justify-center sm:items-center">
       <!-- 搜索框 -->
       <input
-        class="w-64 mr-3 px-3 py-1 outline-none border border-ctp-text rounded-md bg-ctp-base focus:border-ctp-blue focus:ring-2 focus:ring-ctp-blue"
+        class="w-64 px-3 py-1 outline-none border border-ctp-text rounded-md bg-ctp-base focus:border-ctp-blue focus:ring-2 focus:ring-ctp-blue"
         type="text"
         placeholder="请输入文章标题或内容"
         ref="searchInput"
         v-model="searchInputValue"
         v-show="searchButton"
-        @keydown.enter="search"
+        @keydown.enter="searchArticles(searchInputValue)"
       />
       <!-- 清除按钮 -->
       <button
-        class="sm:fixed sm:right-24"
+        class="fixed right-28"
         v-show="showClearButton"
         @click="clearSearchInputValue"
       >
@@ -87,7 +87,7 @@
         </svg>
       </button>
       <!-- 搜索按钮 -->
-      <button>
+      <button class="p-3" @click="showSearchButton">
         <svg
           t="1681807555212"
           class="fill-ctp-text"
@@ -98,7 +98,6 @@
           id="mx_n_1681807555214"
           width="16"
           height="16"
-          @click="showSearchButton"
         >
           <path
             d="M968.842667 908.501333L726.698667 666.357333A382.293333 382.293333 0 0 0 810.666667 426.666667C810.666667 214.592 638.752 42.666667 426.666667 42.666667 214.592 42.666667 42.666667 214.592 42.666667 426.666667s171.925333 384 384 384c90.666667 0 173.994667-31.413333 239.690666-83.978667l242.144 242.144a42.666667 42.666667 0 0 0 60.341334-60.330667zM426.666667 725.333333c-164.949333 0-298.666667-133.717333-298.666667-298.666666s133.717333-298.666667 298.666667-298.666667c164.96 0 298.666667 133.717333 298.666666 298.666667S591.626667 725.333333 426.666667 725.333333z"
@@ -112,7 +111,6 @@
 
 <script>
 import { mapActions, mapMutations } from "vuex";
-
 
 export default {
   name: "Search",
@@ -152,6 +150,7 @@ export default {
     // 隐藏或显示搜索框
     showSearchButton() {
       this.searchButton = !this.searchButton;
+      this.searchInputValue = "";
     },
   },
 };

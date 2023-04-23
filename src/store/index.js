@@ -1,11 +1,18 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import { getUser } from "@/request/home";
 import { getArticlesByKeyword } from "@/request/articles";
 
 Vue.use(Vuex);
 
 var actions = {
+  // 获取用户
+  requestUser(context) {
+    getUser().then((res) => {
+      context.commit("requestUser", res.data);
+    });
+  },
   // 搜索文章
   searchArticles(context, keyword) {
     getArticlesByKeyword(keyword).then((res) => {
@@ -15,6 +22,10 @@ var actions = {
 };
 
 var mutations = {
+  // 获取用户
+  requestUser(state, data) {
+    state.user = data;
+  },
   // 修改主题
   changeFlavour(state, flavour) {
     state.flavour = flavour;
@@ -37,6 +48,7 @@ var mutations = {
   searchArticles(state, data) {
     state.searchArticlesList = data;
   },
+  // 显示搜索列表
   setShowSearchArticlesList(state, value) {
     state.showSearchArticlesList = value;
   },
@@ -44,6 +56,7 @@ var mutations = {
 
 var state = {
   user: {},
+  // 主题
   flavour: "",
   // 移动端菜单属性
   showMobileMenu: false,

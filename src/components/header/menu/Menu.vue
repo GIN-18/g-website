@@ -1,13 +1,24 @@
 <template>
-  <!-- 移动端菜单栏 -->
-  <div
-    class="fixed top-12 left-0 w-full pt-3 px-3 border-t-2 border-ctp-surface0 bg-ctp-mantle sm:hidden"
-    v-show="showMobileMenu"
-  >
-    <Search></Search>
-    <SearchArticlesList></SearchArticlesList>
-    <Navbar v-show="focusToHide"></Navbar>
-    <Theme v-show="focusToHide"></Theme>
+  <div class="sm:flex-1 sm:flex sm:justify-end">
+    <!-- 移动端菜单栏 -->
+    <div
+      class="fixed top-12 left-0 w-full pt-3 px-3 border-t-2 border-ctp-surface0 bg-ctp-mantle sm:hidden"
+      v-if="showMobileMenu"
+    >
+      <Search></Search>
+      <SearchArticlesList></SearchArticlesList>
+      <Navbar v-show="focusToHide"></Navbar>
+      <Theme v-show="focusToHide"></Theme>
+    </div>
+    <!-- 宽屏菜单栏 -->
+    <div
+      class="hidden sm:flex sm:justify-center sm:items-center"
+    >
+      <Navbar></Navbar>
+      <Theme></Theme>
+      <Search></Search>
+      <SearchArticlesList></SearchArticlesList>
+    </div>
   </div>
 </template>
 
@@ -30,5 +41,6 @@ export default {
   computed: {
     ...mapState(["showMobileMenu", "focusToHide"]),
   },
+  created() {},
 };
 </script>
