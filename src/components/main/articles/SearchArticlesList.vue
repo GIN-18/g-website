@@ -1,7 +1,7 @@
 <template>
   <!-- FIX: 宽屏定位无效 -->
   <div
-    class="fixed top-28 left-0 w-full p-3 pb-0 bg-ctp-mantle sm:top-12 sm:right-20 sm:w-72 sm:border-t-2 sm:border-ctp-surface1"
+    class="fixed top-28 left-0 w-full p-3 pb-0 bg-ctp-mantle sm:top-12 sm:left-3/4 sm:w-80 sm:border-t-2 sm:border-ctp-surface1"
     v-show="showSearchArticlesList"
   >
     <div class="flex justify-between items-center pb-3">

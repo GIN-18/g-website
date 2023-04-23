@@ -147,10 +147,12 @@ export default {
     ...mapMutations(["setFocusToHide"]),
 
     // pc端方法
+    ...mapMutations(["setShowSearchArticlesList"]),
     // 隐藏或显示搜索框
     showSearchButton() {
-      this.searchButton = !this.searchButton;
       this.searchInputValue = "";
+      this.setShowSearchArticlesList(false);
+      this.searchButton = !this.searchButton;
     },
   },
 };
