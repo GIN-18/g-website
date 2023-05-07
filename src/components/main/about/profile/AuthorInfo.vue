@@ -19,7 +19,7 @@
         </svg>
       </template>
       <template v-slot:info>
-        {{ $store.state.user.username }}
+        {{ user.username }}
       </template>
     </IconInfo>
     <IconInfo>
@@ -41,7 +41,7 @@
         </svg>
       </template>
       <template v-slot:info>
-        {{ $store.state.user.address }}
+        {{ user.address }}
       </template>
     </IconInfo>
     <IconInfo>
@@ -63,7 +63,7 @@
         </svg>
       </template>
       <template v-slot:info>
-        {{ $store.state.user.email }}
+        {{ user.email }}
       </template>
     </IconInfo>
     <IconInfo>
@@ -85,7 +85,7 @@
         </svg>
       </template>
       <template v-slot:info>
-        <a class="link-hover" :href="$store.state.user.github">GIN-18</a>
+        <a class="link-hover" :href="user.github">GIN-18</a>
       </template>
     </IconInfo>
     <IconInfo>
@@ -107,13 +107,15 @@
         </svg>
       </template>
       <template v-slot:info>
-        <a class="link-hover" :href="$store.state.user.csdn">CSDN</a>
+        <a class="link-hover" :href="user.csdn">CSDN</a>
       </template>
     </IconInfo>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import IconInfo from "@/components/common/IconInfo";
 
 export default {
@@ -121,13 +123,8 @@ export default {
   components: {
     IconInfo,
   },
+  computed: {
+    ...mapState(["user"])
+  },
 };
 </script>
-
-<style scoped>
-#author-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-</style>

@@ -28,19 +28,20 @@ export default {
       tags_articles: [],
     };
   },
+  methods: {
+    requetArticlesByTag(params) {
+      getArticlesByTag({
+        tag: params,
+      }).then((res) => {
+        this.tags_articles = res.data;
+      });
+    },
+  },
   created() {
-    getArticlesByTag({
-      tag: this.$route.params.tag,
-    }).then((res) => {
-      this.tags_articles = res.data;
-    });
+    this.requetArticlesByTag(this.$route.params.tag);
   },
   beforeRouteUpdate(to, from, next) {
-    getArticlesByTag({
-      tag: to.params.tag,
-    }).then((res) => {
-      this.tags_articles = res.data;
-    });
+    this.requetArticlesByTag(to.params.tag);
     next();
   },
 };

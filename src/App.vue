@@ -36,6 +36,8 @@ export default {
 </script>
 
 <style>
+/* 引入animate动画库 */
+@import "animate.css";
 /* 引入tailwindcss/index.css */
 @import "@/assets/style/tailwindcss/index.css";
 </style>

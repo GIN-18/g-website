@@ -54,7 +54,7 @@ article hr {
   margin-top: 20px;
   margin-bottom: 20px;
   height: 0;
-  @apply border-t border-ctp-subtext0;
+  @apply border-t border-ctp-overlay1;
 }
 /* 列表 */
 article ol ol,
@@ -119,8 +119,7 @@ article table {
   border-spacing: 0;
 }
 article table tr {
-  @apply border-t border-ctp-subtext0;
-  @apply bg-ctp-base;
+  @apply border-t border-ctp-subtext0 bg-ctp-base;
 }
 article table tr:nth-child(2n) {
   @apply bg-ctp-crust;
@@ -167,7 +166,7 @@ article code {
   padding-bottom: 0.2em;
   margin: 0;
   font-size: 85%;
-  @apply bg-ctp-crust text-ctp-maroon whitespace-nowrap;
+  @apply bg-ctp-mantle text-ctp-maroon;
   -webkit-border-radius: 5px;
   border-radius: 5px;
 }

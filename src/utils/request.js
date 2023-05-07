@@ -1,5 +1,7 @@
 import axios from "axios";
 
+axios.defaults.withCredentials = false;
+
 var baseURL = "https://website.cms.gin-18.top/api";
 var timeout = 10000;
 
