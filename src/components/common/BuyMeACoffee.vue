@@ -1,19 +1,24 @@
 <template>
   <div id="buy-me-a-coffee" class="flex flex-col justify-center items-center">
     <!-- 赞赏二维码 -->
-    <div class="flex mb-2 p-6 border border-ctp-peach rounded-md text-ctp-peach" v-if="showPayment">
-      <div class="payment-item mr-2">
-        <img
-          class="payment-image"
-          src="@/assets/images/payment/wechatpay.jpg"
-        />
-        <span>微信</span>
+    <Transition appear name="animate__animated animate__bounce payment">
+      <div
+        class="flex mb-2 p-6 border border-ctp-peach rounded-md text-ctp-peach"
+        v-if="showPayment"
+      >
+        <div class="payment-item mr-2">
+          <img
+            class="payment-image"
+            src="@/assets/images/payment/wechatpay.jpg"
+          />
+          <span>微信</span>
+        </div>
+        <div class="payment-item">
+          <img class="payment-image" src="@/assets/images/payment/alipay.jpg" />
+          <span>支付宝</span>
+        </div>
       </div>
-      <div class="payment-item">
-        <img class="payment-image" src="@/assets/images/payment/alipay.jpg" />
-        <span>支付宝</span>
-      </div>
-    </div>
+    </Transition>
     <!-- 赞赏按钮 -->
     <button
       class="flex justify-center items-center px-3 py-2 border border-ctp-peach rounded-md text-ctp-peach"
@@ -56,5 +61,14 @@ export default {
 }
 .payment-image {
   @apply w-36 mb-2 p-6 rounded-md bg-ctp-mantle;
+}
+
+.payment-enter-active {
+  animation: zoomIn;
+  animation-duration: 0.5s;
+}
+.payment-leave-active {
+  animation: zoomOut;
+  animation-duration: 0.5s;
 }
 </style>

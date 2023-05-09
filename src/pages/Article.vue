@@ -14,7 +14,7 @@
     <article class="content" v-html="content"></article>
     <!-- 评论 -->
     <WriteComment :article_id="article_id"></WriteComment>
-    <CommentsList :article_id="article_id" v-if="showCommentsList"></CommentsList>
+    <!-- <CommentsList :article_id="article_id" v-if="showCommentsList"></CommentsList> -->
     <!-- 赞赏按钮 -->
     <BuyMeACoffee></BuyMeACoffee>
   </div>
@@ -22,7 +22,7 @@
 
 <script>
 import { getArticleById } from "@/request/article";
-import markdownConversion from "@/utils/markdownConversion";
+import {markdownToHtml} from "@/utils/markdownConversion";
 
 import ArticleMetaLine from "@/components/main/article/ArticleMetaLine";
 import PageMetaLine from "@/components/common/PageMetaLine";
@@ -62,7 +62,7 @@ export default {
         this.tag = tag;
         this.created = created;
         this.updated = updated;
-        this.content = markdownConversion.markdownToHtml(content);
+        this.content = markdownToHtml(content);
         this.showCommentsList = Object.keys(res.data).length > 0 ? true : false;
       });
     },

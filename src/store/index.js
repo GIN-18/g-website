@@ -19,6 +19,7 @@ var actions = {
       context.commit("searchArticles", res.data);
     });
   },
+  // 根据文章id获取评论
 };
 
 var mutations = {

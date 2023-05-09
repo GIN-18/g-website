@@ -25,8 +25,6 @@ var md = require("markdown-it")({
 
 md.use(emoji).use(anchor, {}).use(toc, {});
 
-export default {
-  markdownToHtml: (markdownContent) => {
+export function markdownToHtml (markdownContent) {
     return md.render(markdownContent);
-  },
-};
+}
