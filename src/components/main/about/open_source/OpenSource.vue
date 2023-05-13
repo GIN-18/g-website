@@ -1,6 +1,6 @@
 <template>
   <div>
-    <GroupTitle>
+    <IconInfo componentStyle="mt-5 mb-3" fontStyle="text-xl font-semibold">
       <template v-slot:icon>
         <svg
           t="1677677583158"
@@ -19,7 +19,7 @@
         </svg>
       </template>
       <template v-slot:info> 开源项目 </template>
-    </GroupTitle>
+    </IconInfo>
 
     <!-- 开源项目列表 -->
     <div class="sm:grid grid-cols-2 gap-3">
@@ -43,13 +43,13 @@
 <script>
 import { getAllProjects } from "@/request/about";
 
-import GroupTitle from "@/components/common/GroupTitle";
+import IconInfo from "@/components/common/IconInfo";
 import OpenSourceItem from "@/components/main/about/open_source/OpenSourceItem";
 
 export default {
   name: "OpenSource",
   components: {
-    GroupTitle,
+    IconInfo,
     OpenSourceItem,
   },
   data() {

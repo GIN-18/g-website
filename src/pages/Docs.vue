@@ -22,7 +22,7 @@ export default {
       years: [],
     };
   },
-  created() {
+  mounted() {
     getAllYears().then((res) => {
       this.years = res.data;
     });

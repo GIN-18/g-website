@@ -3,6 +3,7 @@ import Vuex from "vuex";
 
 import { getUser } from "@/request/home";
 import { getArticlesByKeyword } from "@/request/articles";
+import { getCommentsByArticleId } from "@/request/comment";
 
 Vue.use(Vuex);
 
@@ -20,6 +21,10 @@ var actions = {
     });
   },
   // 根据文章id获取评论
+  async requestCommentsByArticleId(context, article_id) {
+    var res = await getCommentsByArticleId(article_id);
+    context.commit("RequestCommentsByArticleId", res.data);
+  },
 };
 
 var mutations = {
@@ -53,6 +58,10 @@ var mutations = {
   setShowSearchArticlesList(state, value) {
     state.showSearchArticlesList = value;
   },
+  // 设置获取到的评论
+  RequestCommentsByArticleId(state, comments) {
+    state.comments = comments;
+  },
 };
 
 var state = {
@@ -65,6 +74,8 @@ var state = {
   // 搜索结果
   searchArticlesList: [],
   showSearchArticlesList: false,
+  // 评论
+  comments: [],
 };
 
 var store = new Vuex.Store({

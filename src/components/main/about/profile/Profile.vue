@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between">
+  <div class="flex justify-between pb-5 border-b border-ctp-overlay0 border-dashed">
     <AuthorInfo></AuthorInfo>
     <Avatar width="9.5"></Avatar>
   </div>

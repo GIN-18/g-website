@@ -3,7 +3,7 @@ function addZero(item) {
 }
 
 export function formatDate(timestamp) {
-  var date = new Date(timestamp * 1000);
+  var date = new Date(timestamp);
 
   var year = date.getFullYear();
   var month = addZero(date.getMonth() + 1);

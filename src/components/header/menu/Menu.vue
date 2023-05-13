@@ -1,19 +1,19 @@
 <template>
   <div class="sm:flex-1 sm:flex sm:justify-end">
     <!-- 移动端菜单栏 -->
-    <div
-      class="fixed top-12 left-0 w-full pt-3 px-3 border-t-2 border-ctp-surface0 bg-ctp-mantle sm:hidden"
-      v-if="showMobileMenu"
-    >
-      <Search></Search>
-      <SearchArticlesList></SearchArticlesList>
-      <Navbar v-show="focusToHide"></Navbar>
-      <Theme v-show="focusToHide"></Theme>
-    </div>
+    <Transition appear name="menu">
+      <div
+        class="fixed top-12 left-0 w-full pt-3 px-3 border-t-2 border-ctp-surface0 bg-ctp-mantle sm:hidden"
+        v-if="showMobileMenu"
+      >
+        <Search></Search>
+        <SearchArticlesList></SearchArticlesList>
+        <Navbar v-show="focusToHide"></Navbar>
+        <Theme v-show="focusToHide"></Theme>
+      </div>
+    </Transition>
     <!-- 宽屏菜单栏 -->
-    <div
-      class="hidden sm:flex sm:justify-center sm:items-center"
-    >
+    <div class="hidden sm:flex sm:justify-center sm:items-center">
       <Navbar></Navbar>
       <Theme></Theme>
       <Search></Search>
@@ -44,3 +44,14 @@ export default {
   created() {},
 };
 </script>
+
+<style scoped>
+.menu-enter-active {
+  animation: fadeInDown;
+  animation-duration: 0.5s;
+}
+.menu-leave-active {
+  animation: fadeOutUp;
+  animation-duration: 0.5s;
+}
+</style>

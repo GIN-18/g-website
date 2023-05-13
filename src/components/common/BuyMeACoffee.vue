@@ -1,5 +1,5 @@
 <template>
-  <div id="buy-me-a-coffee" class="flex flex-col justify-center items-center">
+  <div id="buy-me-a-coffee" class="flex flex-col justify-center items-center py-8">
     <!-- 赞赏二维码 -->
     <Transition appear name="animate__animated animate__bounce payment">
       <div

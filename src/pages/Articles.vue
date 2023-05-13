@@ -29,7 +29,7 @@ export default {
       articles: [],
     };
   },
-  created() {
+  mounted() {
     getAllArticles().then((res) => {
       this.articles = res.data;
     });

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <GroupTitle>
+    <IconInfo>
       <template v-slot:icon>
         <svg
           t="1680321773787"
@@ -21,7 +21,7 @@
       <template v-slot:info>
         {{ year }}
       </template>
-    </GroupTitle>
+    </IconInfo>
 
     <!-- 文章列表 -->
     <ul>
@@ -34,7 +34,7 @@
           docItem.title
         }}</router-link>
         <span class="text-ctp-overlay1">{{
-          MonthAndDate(docItem.created)
+          MonthAndDate(docItem.createdAt)
         }}</span>
       </li>
     </ul>
@@ -44,13 +44,13 @@
 <script>
 import { getArticlesByYear } from "@/request/docs";
 
-import GroupTitle from "@/components/common/GroupTitle";
+import IconInfo from "@/components/common/IconInfo";
 
 export default {
   name: "DocItem",
   props: ["year"],
   components: {
-    GroupTitle,
+    IconInfo,
   },
   data() {
     return {
@@ -60,7 +60,7 @@ export default {
   methods: {
     // 月份和日期添加0
     MonthAndDate(timestamp) {
-      var date = new Date(timestamp * 1000);
+      var date = new Date(timestamp);
       var currentMonth =
         date.getMonth() + 1 < 10
           ? "0" + (date.getMonth() + 1)

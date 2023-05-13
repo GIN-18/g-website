@@ -6,8 +6,8 @@
       :id="article._id"
       :title="article.title"
       :description="article.description"
-      :created="article.created"
-      :updated="article.updated"
+      :createdAt="article.createdAt"
+      :updatedAt="article.updatedAt"
       :tag="article.tag"
     ></ArticlesListItem>
   </div>

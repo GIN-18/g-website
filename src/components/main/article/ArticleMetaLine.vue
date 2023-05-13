@@ -1,7 +1,10 @@
 <template>
-  <div class="flex justify-start items-center text-sm overflow-x-auto">
+  <div class="flex justify-start items-center text-sm">
     <!-- 发布时间 -->
-    <MetaLineItem>
+    <IconInfo
+      componentStyle="mr-5"
+      fontStyle="text-sm text-ctp-overlay1"
+    >
       <template v-slot:icon>
         <svg
           t="1678613642182"
@@ -22,9 +25,12 @@
       <template v-slot:info>
         {{ postDate }}
       </template>
-    </MetaLineItem>
+    </IconInfo>
     <!-- 更新时间 -->
-    <MetaLineItem>
+    <IconInfo
+      componentStyle="mr-5"
+      fontStyle="text-sm text-ctp-overlay1"
+    >
       <template v-slot:icon>
         <svg
           t="1679754631840"
@@ -45,50 +51,27 @@
       <template v-slot:info>
         {{ updateDate }}
       </template>
-    </MetaLineItem>
-    <!-- 标签 -->
-    <MetaLineItem>
-      <template v-slot:icon>
-        <svg
-          t="1678613669078"
-          class="fill-ctp-overlay1"
-          viewBox="0 0 1024 1024"
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-          p-id="6694"
-          width="14"
-          height="14"
-        >
-          <path
-            d="M490.048 128l393.450667 393.482667A42.421333 42.421333 0 0 1 896 551.637333a42.453333 42.453333 0 0 1-12.501333 30.165334L581.802667 883.498667A42.464 42.464 0 0 1 551.637333 896c-6.592 0-19.306667-1.621333-30.176-12.501333L128 490.037333V128h362.048m35.338667-85.333333H42.666667v482.72l418.453333 418.442666A127.637333 127.637333 0 0 0 551.637333 981.333333c32.746667 0 65.514667-12.501333 90.506667-37.504l301.685333-301.685333c49.994667-50.005333 49.994667-131.029333 0-181.024L525.386667 42.666667zM362.666667 256c-58.912 0-106.666667 47.765333-106.666667 106.666667s47.754667 106.666667 106.666667 106.666666c58.901333 0 106.666667-47.765333 106.666666-106.666666s-47.754667-106.666667-106.666666-106.666667z m0 128a21.333333 21.333333 0 1 1 0-42.666667 21.333333 21.333333 0 0 1 0 42.666667z"
-            p-id="6695"
-          ></path>
-        </svg>
-      </template>
-      <template v-slot:info>
-        {{ tag }}
-      </template>
-    </MetaLineItem>
+    </IconInfo>
   </div>
 </template>
 
 <script>
 import { formatDate } from "@/utils/dateFormat";
 
-import MetaLineItem from "@/components/common/MetaLineItem";
+import IconInfo from "@/components/common/IconInfo";
 
 export default {
   name: "ArticleMetaLine",
-  props: ["created", "updated", "tag"],
+  props: ["createdAt", "updatedAt"],
   components: {
-    MetaLineItem,
+    IconInfo,
   },
   computed: {
     postDate() {
-      return formatDate(this.created);
+      return formatDate(this.createdAt);
     },
     updateDate() {
-      return formatDate(this.updated);
+      return formatDate(this.updatedAt);
     },
   },
 };

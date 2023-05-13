@@ -29,7 +29,7 @@ export default {
   methods: {
     ...mapActions(["requestUser"]),
   },
-  created() {
+  mounted() {
     this.requestUser();
   },
 };
