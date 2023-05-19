@@ -19,22 +19,24 @@
       </svg>
       写评论
     </div>
-    <!-- 写评论 -->
+    <!-- 评论信息 -->
     <div>
       <!-- 添加昵称 -->
-      <input
-        class="w-full p-3 border border-b-0 border-ctp-overlay0 rounded-md rounded-b-none outline-none bg-ctp-base placeholder-ctp-overlay0"
-        type="text"
-        placeholder="昵称"
-        v-model="author"
-      />
-      <!-- 添加邮箱 -->
-      <input
-        class="w-full p-3 border border-b-0 border-ctp-overlay0 rounded-none outline-none bg-ctp-base placeholder-ctp-overlay0"
-        type="text"
-        placeholder="邮箱"
-        v-model="email"
-      />
+      <div class="sm:flex">
+        <input
+          class="w-full p-3 border border-b-0 border-ctp-overlay0 rounded-md rounded-b-none outline-none bg-ctp-base placeholder-ctp-overlay0 sm:w-1/2 sm:border-r-0 sm:rounded-tr-none"
+          type="text"
+          placeholder="昵称"
+          v-model="author"
+        />
+        <!-- 添加邮箱 -->
+        <input
+          class="w-full p-3 border border-b-0 border-ctp-overlay0 rounded-none outline-none bg-ctp-base placeholder-ctp-overlay0 sm:w-1/2 sm:rounded-tr-md"
+          type="text"
+          placeholder="邮箱"
+          v-model="email"
+        />
+      </div>
       <!-- 写评论 -->
       <textarea
         class="block w-full h-56 p-3 border border-b-0 border-ctp-overlay0 outline-none resize-none bg-ctp-base placeholder-ctp-overlay0"

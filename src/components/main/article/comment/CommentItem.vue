@@ -2,7 +2,7 @@
   <Transition appear name="comment">
     <div>
       <div
-        class="flex justify-between items-center p-3 border border-b-0 border-ctp-overlay0 rounded rounded-b-none"
+        class="flex justify-between items-center p-3 border border-b-0 border-ctp-overlay0 rounded rounded-b-none bg-ctp-mantle"
       >
         <svg
           t="1683890989291"

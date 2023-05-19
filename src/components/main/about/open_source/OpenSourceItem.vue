@@ -2,7 +2,7 @@
   <div class="opensource-item break-inside-avoid">
     <img class="rounded-t-md" :src="imageUrl" />
     <div class="p-3 rounded-b-md bg-ctp-crust">
-      <a :href="projectUrl">
+      <a class="link-hover" :href="projectUrl">
         <h4 class="text-lg font-semibold">
           <slot name="project-name"></slot>
         </h4>
