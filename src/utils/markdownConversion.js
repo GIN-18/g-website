@@ -6,7 +6,7 @@ import hljs from "highlight.js";
 var md = require("markdown-it")({
   html: true,
   typographer: true,
-  highlight: function(str, lang) {
+  highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
       try {
         return (
@@ -14,7 +14,7 @@ var md = require("markdown-it")({
           hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
           "</code></pre>"
         );
-      } catch (__) { }
+      } catch (__) {}
     }
 
     return (
@@ -25,6 +25,6 @@ var md = require("markdown-it")({
 
 md.use(emoji).use(anchor, {}).use(toc, {});
 
-export function markdownToHtml (markdownContent) {
-    return md.render(markdownContent);
+export function markdownToHtml(markdownContent) {
+  return md.render(markdownContent);
 }

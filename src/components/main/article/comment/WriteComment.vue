@@ -20,27 +20,40 @@
       写评论
     </div>
     <!-- 写评论 -->
-    <div class="pb-3">
+    <div>
+      <!-- 添加昵称 -->
       <input
-        class="w-full p-3 border border-b-0 border-ctp-overlay0 rounded-md rounded-b-none outline-none bg-ctp-base"
+        class="w-full p-3 border border-b-0 border-ctp-overlay0 rounded-md rounded-b-none outline-none bg-ctp-base placeholder-ctp-overlay0"
         type="text"
         placeholder="昵称"
         v-model="author"
       />
+      <!-- 添加邮箱 -->
       <input
-        class="w-full p-3 border border-b-0 border-ctp-overlay0 rounded-none outline-none bg-ctp-base"
+        class="w-full p-3 border border-b-0 border-ctp-overlay0 rounded-none outline-none bg-ctp-base placeholder-ctp-overlay0"
         type="text"
         placeholder="邮箱"
         v-model="email"
       />
+      <!-- 写评论 -->
       <textarea
-        class="w-full h-56 p-3 border border-ctp-overlay0 rounded-md rounded-t-none outline-none resize-none bg-ctp-base"
-        placeholder="请多多指教~"
+        class="block w-full h-56 p-3 border border-b-0 border-ctp-overlay0 outline-none resize-none bg-ctp-base placeholder-ctp-overlay0"
+        placeholder="请多多指教（支持Markdown语法）~"
+        ref="content"
         v-model="content"
+        v-show="!isPreview"
       >
       </textarea>
+      <!-- 预览评论 -->
+      <article
+        class="w-full h-56 p-3 overflow-y-auto border border-b-0 border-ctp-overlay0 bg-ctp-base"
+        v-html="markdownToHtml(content)"
+        v-show="isPreview"
+      ></article>
       <!-- 提交评论 -->
-      <div class="flex justify-between items-center">
+      <div
+        class="flex justify-between items-center p-3 border border-t-0 border-ctp-overlay0 rounded-md rounded-t-none"
+      >
         <div class="flex items-center">
           <Loading v-show="showLoading"></Loading>
           <TransitionGroup appear name=" message">
@@ -104,20 +117,31 @@
             >
           </TransitionGroup>
         </div>
-        <button
-          class="px-3 py-2 rounded-md bg-ctp-teal text-ctp-base font-semibold"
-          @click="submitComment"
-        >
-          提交
-        </button>
+        <div>
+          <button
+            class="mr-2 px-3 py-2 rounded-md bg-ctp-teal text-ctp-base font-semibold"
+            :class="{ 'bg-ctp-blue': isPreview }"
+            @click="previewComment"
+          >
+            预览
+          </button>
+          <button
+            class="px-3 py-2 rounded-md bg-ctp-teal text-ctp-base font-semibold"
+            @click="submitComment"
+          >
+            提交
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { debounce } from "@/utils/debounce";
-import { addComment } from "@/request/comment";
+import { addComment, addCommentReply } from "@/request/comment";
+import { markdownToHtml } from "@/utils/markdownConversion";
 
 import Loading from "@/components/common/Loading";
 
@@ -138,7 +162,26 @@ export default {
         succeed: false,
       },
       showLoading: false,
+      isPreview: false,
     };
+  },
+  computed: {
+    ...mapState(["comment", "reply"]),
+    textareaFocus() {
+      return this.reply.replyId;
+    },
+  },
+  watch: {
+    textareaFocus() {
+      if (!this.reply.commentAuthor) {
+        return;
+      }
+      this.content = this.quoteComment(
+        this.reply.commentAuthor,
+        this.reply.commentContent
+      );
+      this.$refs.content.focus();
+    },
   },
   methods: {
     // 验证邮箱格式
@@ -158,7 +201,7 @@ export default {
         this.message.succeed = false;
       }, 2000);
     },
-    // 验证评论信息并提交
+    // 验证评论信息
     validateCommentInfo() {
       var a = this.author;
       var e = this.email;
@@ -192,28 +235,66 @@ export default {
       }
       return isValid;
     },
+    // markdown 转 html
+    markdownToHtml,
+    // 预览评论
+    previewComment() {
+      this.isPreview = !this.isPreview;
+    },
+    // 引用评论
+    quoteComment(author, content) {
+      if (!author || !content) {
+        return;
+      }
+      var contentArray = content.split("\n");
+      var updateContentArray = contentArray.map((item) => {
+        return `> ${item}`;
+      });
+      return `@${author}\n\n${updateContentArray.join("\n")}\n\n`;
+    },
     // 提交评论
-    submitComment: debounce(async function () {
+    submitComment: debounce(function () {
       if (!this.validateCommentInfo()) {
         return;
       }
       this.showLoading = true;
-      try {
-        const res = await addComment(
-          this.article_id,
+      if (this.comment.operate === "add") {
+        addComment(this.article_id, this.author, this.email, this.content).then(
+          (res) => {
+            if (res.added === "ok") {
+              this.showLoading = false;
+              this.message.content = "评论发布成功~";
+              this.$store.dispatch(
+                "requestCommentsByArticleId",
+                this.article_id
+              );
+              this.displayMessage();
+              this.content = "";
+            }
+          }
+        );
+      } else if (this.comment.operate === "reply") {
+        addCommentReply(
+          this.reply.commentId,
           this.author,
           this.email,
           this.content
-        );
-        if (res.added === "ok") {
-          this.showLoading = false;
-          this.message.content = "评论发布成功~";
-          this.$store.dispatch("requestCommentsByArticleId", this.article_id);
-          this.displayMessage();
-          this.content = "";
-        }
-      } catch (error) {
-        console.error(error);
+        ).then((res) => {
+          if (res.added === "ok") {
+            this.showLoading = false;
+            this.message.content = "评论发布成功~";
+            this.$store.dispatch("requestCommentsByArticleId", this.article_id);
+            this.displayMessage();
+            this.content = "";
+            this.$store.commit("PostComment", {
+              operate: "add",
+              replyId: null,
+              commentId: null,
+              commentAuthor: null,
+              commentContent: null,
+            });
+          }
+        });
       }
     }, 1000),
   },

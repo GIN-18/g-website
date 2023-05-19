@@ -31,21 +31,25 @@
           <span class="font-semibold">{{ author }}</span>
           <span class="text-ctp-overlay1">{{ formatDate(createdAt) }}</span>
         </div>
-        <button class="text-ctp-sky">回复</button>
+        <button class="text-ctp-sky" @click="reply">回复</button>
       </div>
-      <p class="p-3 border border-ctp-overlay0 rounded rounded-t-none">
-        {{ content }}
-      </p>
+      <article
+        class="p-3 pb-0 border border-ctp-overlay0 rounded rounded-t-none"
+        v-html="htmlContent"
+      ></article>
     </div>
   </Transition>
 </template>
 
 <script>
-import { formatDate } from "@/utils/dateFormat"
+import { formatDate } from "@/utils/dateFormat";
+import { markdownToHtml } from "@/utils/markdownConversion";
 
 export default {
   name: "CommentItem",
   props: {
+    replyId: String,
+    commentId: String,
     author: {
       type: String,
       required: true,
@@ -59,13 +63,31 @@ export default {
       required: true,
     },
   },
+  computed: {
+    htmlContent() {
+      return markdownToHtml(this.content);
+    },
+  },
   methods: {
     formatDate,
+    reply() {
+      this.$store.commit("PostComment", {
+        operate: "reply",
+        replyId: this.replyId,
+        commentId: this.commentId,
+        commentAuthor: this.author,
+        commentContent: this.content,
+      });
+    },
   },
 };
 </script>
 
 <style scoped>
+/* 引入文章样式 */
+@import "@/assets/style/article/markdown.css";
+@import "@catppuccin/highlightjs/css/catppuccin-frappe.css";
+
 .comment-enter-active {
   animation: fadeInLeft;
   animation-duration: 0.5s;

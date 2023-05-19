@@ -9,6 +9,7 @@ var Index = () => import("@/pages/Index");
 var Articles = () => import("@/pages/Articles");
 var TagsArticles = () => import("@/pages/TagsArticles");
 var Article = () => import("@/pages/Article");
+var CommentsList = () => import("@/components/main/article/comment/CommentsList");
 var Tags = () => import("@/pages/Tags");
 var Categories = () => import("@/pages/Categories");
 var Docs = () => import("@/pages/Docs");

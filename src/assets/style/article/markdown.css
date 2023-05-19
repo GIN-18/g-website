@@ -10,7 +10,8 @@ article dl,
 article table,
 article pre {
   margin-top: 0;
-  margin-bottom: 16px;
+  /* margin-bottom: 16px; */
+  @apply mb-3
 }
 /* 标题 */
 article h1,
@@ -103,11 +104,20 @@ article dl dd {
   margin-left: 0;
 }
 article dl dd p {
-  margin-bottom: 0.8em;
+  /* margin-bottom: 0.8em; */
+  @apply mb-3
 }
 article li::marker {
   @apply text-ctp-blue;
 }
+
+article blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0 15px;
+  @apply border-l-4 border-ctp-overlay0 text-ctp-overlay2
+}
+
 /* 表格 */
 article table {
   display: block;

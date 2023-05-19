@@ -1,5 +1,7 @@
 <template>
-  <div :class="[flex, itemsCenter, componentStyle]">
+  <div
+    class="flex items-center"
+    :class="[componentStyle]">
     <span class="mr-2">
       <slot name="icon"></slot>
     </span>
@@ -17,12 +19,6 @@ export default {
     componentStyle: String,
     // 字体样式
     fontStyle: String,
-  },
-  data() {
-    return {
-      flex: "flex",
-      itemsCenter: "items-center",
-    };
   },
 };
 </script>

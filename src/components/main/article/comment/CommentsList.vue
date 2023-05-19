@@ -46,7 +46,7 @@ export default {
   },
   computed: {
     comments() {
-      return this.$store.state.comments;
+      return this.$store.state.comment.commentsArray;
     },
     sumOfComments() {
       return this.comments.length + this.flattenObject(this.comments).length;

@@ -60,7 +60,15 @@ var mutations = {
   },
   // 设置获取到的评论
   RequestCommentsByArticleId(state, comments) {
-    state.comments = comments;
+    state.comment.commentsArray = comments;
+  },
+  // 发布评论
+  PostComment(state, { operate, replyId, commentId, commentAuthor, commentContent }) {
+    state.comment.operate = operate;
+    state.reply.replyId = replyId,
+    state.reply.commentId = commentId;
+    state.reply.commentAuthor = commentAuthor;
+    state.reply.commentContent = commentContent;
   },
 };
 
@@ -75,7 +83,16 @@ var state = {
   searchArticlesList: [],
   showSearchArticlesList: false,
   // 评论
-  comments: [],
+  comment: {
+    operate: "add",
+    commentsArray: [],
+  },
+  reply: {
+    replyId: null,
+    commentId: null,
+    commentAuthor: null,
+    commentContent: null,
+  },
 };
 
 var store = new Vuex.Store({

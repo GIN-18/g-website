@@ -1,7 +1,7 @@
 <template>
   <div class="w-full px-3 sm:w-7/12">
     <!-- 文章标题 -->
-    <h1 class="mt-6 mb-3 text-3xl font-semibold">{{ title }}</h1>
+    <h1 class="pt-6 pb-3 text-3xl font-semibold">{{ title }}</h1>
     <!-- 文章标签 -->
     <ArticleTag :tag="tag"></ArticleTag>
     <!-- 文章信息栏 -->
@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      article_id: 0,
+      article_id: "",
       title: "",
       tag: "",
       createdAt: "",
