@@ -1,6 +1,6 @@
 <template>
   <img
-    class="border-2 border-ctp-subtext0 rounded-full"
+    class="border-2 border-ctp-text rounded-full"
     :style="imageWidth"
     :src="avatarSrc"
     alt="avatar"

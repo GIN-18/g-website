@@ -9,7 +9,6 @@ var Index = () => import("@/pages/Index");
 var Articles = () => import("@/pages/Articles");
 var TagsArticles = () => import("@/pages/TagsArticles");
 var Article = () => import("@/pages/Article");
-var CommentsList = () => import("@/components/main/article/comment/CommentsList");
 var Tags = () => import("@/pages/Tags");
 var Categories = () => import("@/pages/Categories");
 var Docs = () => import("@/pages/Docs");
@@ -87,7 +86,7 @@ router.beforeEach((to, from, next) => {
   window.scrollTo(0, 0);
 
   store.state.showMobileMenu = false;
-  store.commit("setShowSearchArticlesList", false);
+  store.commit("SetShowSearchArticlesList", false);
 
   next();
 });

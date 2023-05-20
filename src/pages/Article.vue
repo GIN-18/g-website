@@ -67,6 +67,7 @@ export default {
         this.updatedAt = updatedAt;
         this.content = markdownToHtml(content);
         this.showCommentsList = Object.keys(res.data).length > 0 ? true : false;
+        this.$store.dispatch("requestCommentsByArticleId", this.article_id);
       });
     },
   },

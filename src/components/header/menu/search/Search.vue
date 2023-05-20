@@ -20,14 +20,14 @@
       </svg>
       <!-- 搜索框 -->
       <input
-        class="w-full px-8 py-2 outline-none rounded-md placeholder-ctp-overlay1 bg-ctp-surface0"
+        class="w-full px-8 py-2 outline-none rounded-md placeholder-ctp-overlay0 bg-ctp-surface0"
         type="text"
         placeholder="请输入文章标题或内容"
         ref="searchInput"
         v-model="searchInputValue"
         @keydown.enter="searchArticles(searchInputValue)"
-        @focus="setFocusToHide(false)"
-        @blur="setFocusToHide(true)"
+        @focus="SetFocusToHide(false)"
+        @blur="SetFocusToHide(true)"
       />
       <!-- 清除按钮 -->
       <button
@@ -56,7 +56,7 @@
     <div class="hidden sm:flex sm:justify-center sm:items-center">
       <!-- 搜索框 -->
       <input
-        class="w-64 px-3 py-1 outline-none border border-ctp-text rounded-md bg-ctp-base focus:border-ctp-blue focus:ring-2 focus:ring-ctp-blue"
+        class="w-64 px-3 py-1 outline-none border border-ctp-text rounded-md bg-ctp-base placeholder-ctp-overlay0 transition focus:border-ctp-blue focus:ring-2 focus:ring-ctp-blue"
         type="text"
         placeholder="请输入文章标题或内容"
         ref="searchInput"
@@ -135,6 +135,7 @@ export default {
   methods: {
     // 搜索文章
     ...mapActions(["searchArticles"]),
+    ...mapMutations(["SetFocusToHide", "SetShowSearchArticlesList"]),
 
     // 清除搜索框中的内容
     clearSearchInputValue() {
@@ -142,16 +143,11 @@ export default {
       this.$refs.searchInput.focus();
     },
 
-    // 移动端方法
-    // 搜索框获得焦点时，隐藏菜单栏
-    ...mapMutations(["setFocusToHide"]),
-
     // pc端方法
-    ...mapMutations(["setShowSearchArticlesList"]),
     // 隐藏或显示搜索框
     showSearchButton() {
       this.searchInputValue = "";
-      this.setShowSearchArticlesList(false);
+      this.SetShowSearchArticlesList(false);
       this.searchButton = !this.searchButton;
     },
   },

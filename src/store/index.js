@@ -17,7 +17,7 @@ var actions = {
   // 搜索文章
   searchArticles(context, keyword) {
     getArticlesByKeyword(keyword).then((res) => {
-      context.commit("searchArticles", res.data);
+      context.commit("SearchArticles",{ data: res.data, keyword });
     });
   },
   // 根据文章id获取评论
@@ -39,24 +39,25 @@ var mutations = {
   // 显示全部移动端菜单栏
   showMobileMenu(state) {
     state.showMobileMenu = !state.showMobileMenu;
-    state.showSearchArticlesList = false;
+    state.search.showArticlesList = false;
     state.focusToHide = true;
   },
   // 搜索框获得焦点时候调用
-  setFocusToHide(state, value) {
-    if (state.showSearchArticlesList) {
+  SetFocusToHide(state, value) {
+    if (state.search.showArticlesList) {
       state.focusToHide = false;
     } else {
       state.focusToHide = value;
     }
   },
   // 搜索文章
-  searchArticles(state, data) {
-    state.searchArticlesList = data;
+  SearchArticles(state, { data, keyword }) {
+    state.search.keyword = keyword;
+    state.search.articles = data;
   },
   // 显示搜索列表
-  setShowSearchArticlesList(state, value) {
-    state.showSearchArticlesList = value;
+  SetShowSearchArticlesList(state, value) {
+    state.search.showArticlesList = value;
   },
   // 设置获取到的评论
   RequestCommentsByArticleId(state, comments) {
@@ -80,8 +81,11 @@ var state = {
   showMobileMenu: false,
   focusToHide: true,
   // 搜索结果
-  searchArticlesList: [],
-  showSearchArticlesList: false,
+  search: {
+    keyword: "",
+    articles: [],
+    showArticlesList: false,
+  },
   // 评论
   comment: {
     operate: "add",

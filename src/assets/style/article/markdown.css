@@ -129,7 +129,7 @@ article table {
   border-spacing: 0;
 }
 article table tr {
-  @apply border-t border-ctp-subtext0 bg-ctp-base;
+  @apply border border-ctp-subtext0 bg-ctp-base;
 }
 article table tr:nth-child(2n) {
   @apply bg-ctp-crust;
@@ -137,7 +137,7 @@ article table tr:nth-child(2n) {
 article table th,
 article table td {
   padding: 6px 15px;
-  @apply border-t border-ctp-subtext0;
+  @apply border border-ctp-subtext0;
   vertical-align: top;
 }
 /* 代码 */
