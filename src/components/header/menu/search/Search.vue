@@ -55,15 +55,17 @@
     <!-- pc端搜索框 -->
     <div class="hidden sm:flex sm:justify-center sm:items-center">
       <!-- 搜索框 -->
-      <input
-        class="w-64 px-3 py-1 outline-none border border-ctp-text rounded-md bg-ctp-base placeholder-ctp-overlay0 transition focus:border-ctp-blue focus:ring-2 focus:ring-ctp-blue"
-        type="text"
-        placeholder="请输入文章标题或内容"
-        ref="searchInput"
-        v-model="searchInputValue"
-        v-show="searchButton"
-        @keydown.enter="searchArticles(searchInputValue)"
-      />
+      <Transition appear name="search-input">
+        <input
+          class="w-64 px-3 py-1 outline-none border border-ctp-text rounded-md bg-ctp-base placeholder-ctp-overlay0 transition-all focus:border-ctp-blue focus:ring-2 focus:ring-ctp-blue"
+          type="text"
+          placeholder="请输入文章标题或内容"
+          ref="searchInput"
+          v-model="searchInputValue"
+          v-show="searchButton"
+          @keydown.enter="searchArticles(searchInputValue)"
+        />
+      </Transition>
       <!-- 清除按钮 -->
       <button
         class="fixed right-28"
@@ -153,3 +155,82 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.search-input-enter-active {
+  -webkit-animation: scale-in-hor-right 0.3s ease-out both;
+  animation: scale-in-hor-right 0.3s ease-out both;
+}
+.search-input-leave-active {
+  -webkit-animation: scale-out-hor-right 0.3s ease-out both;
+  animation: scale-out-hor-right 0.3s ease-out both;
+}
+
+/* animation scale-in-hor-right */
+@-webkit-keyframes scale-in-hor-right {
+  0% {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}
+@keyframes scale-in-hor-right {
+  0% {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}
+
+/* animation scale-out-hor-right */
+@-webkit-keyframes scale-out-hor-right {
+  0% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}
+@keyframes scale-out-hor-right {
+  0% {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}
+</style>

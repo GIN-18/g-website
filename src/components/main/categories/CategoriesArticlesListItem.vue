@@ -1,9 +1,9 @@
 <template>
   <div
-    class="categories-articles-list-item border-2 border-ctp-subtext0 rounded-md"
+    class="categories-articles-list-item border border-ctp-subtext0 rounded-md"
   >
     <header
-      class="flex justify-between p-3 border-b-2 border-ctp-subtext0 text-ctp-text text-lg font-semibold"
+      class="flex justify-between p-3 border-b border-ctp-subtext0 text-ctp-text text-lg font-semibold"
     >
       <h3 class="category-name">{{ category }}</h3>
       <span class="sum-of-category-item"

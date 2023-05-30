@@ -1,6 +1,6 @@
 <template>
   <router-link
-    class="text-lg font-semibold link-hover"
+    class="pr-3 text-lg font-semibold link-hover"
     :to="`/tags/${tag}`"
   >
     <slot></slot>

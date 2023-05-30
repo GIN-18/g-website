@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-3">
+  <div class="flex items-center mb-3">
     <TagListItem v-for="(tag, index) in tagList" :key="index" :tag="tag">{{
       tag
     }}</TagListItem>

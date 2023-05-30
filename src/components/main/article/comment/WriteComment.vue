@@ -1,5 +1,4 @@
 <template>
-  <!-- 移动端评论框 -->
   <div class="pt-8">
     <div class="flex items-center pb-3 font-semibold text-xl">
       <svg
@@ -39,7 +38,7 @@
       </div>
       <!-- 写评论 -->
       <textarea
-        class="block w-full h-56 p-3 border border-b-0 border-ctp-overlay0 outline-none resize-none bg-ctp-base placeholder-ctp-overlay0"
+        class="block w-full h-56 p-3 border border-b-0 border-ctp-overlay0 rounded-none outline-none resize-none bg-ctp-base placeholder-ctp-overlay0"
         placeholder="请多多指教（支持Markdown语法）~"
         ref="content"
         v-model="content"
