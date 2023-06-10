@@ -140,7 +140,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { debounce } from "@/utils/debounce";
+import lodash from "lodash";
 import { addComment, addCommentReply } from "@/request/comment";
 import { markdownToHtml } from "@/utils/markdownConversion";
 
@@ -254,14 +254,19 @@ export default {
       return `@${author}\n\n${updateContentArray.join("\n")}\n\n`;
     },
     // 提交评论
-    submitComment: debounce(function () {
-      if (!this.validateCommentInfo()) {
-        return;
-      }
-      this.showLoading = true;
-      if (this.comment.operate === "add") {
-        addComment(this.article_id, this.author, this.email, this.content).then(
-          (res) => {
+    submitComment: lodash.debounce(
+      function () {
+        if (!this.validateCommentInfo()) {
+          return;
+        }
+        this.showLoading = true;
+        if (this.comment.operate === "add") {
+          addComment(
+            this.article_id,
+            this.author,
+            this.email,
+            this.content
+          ).then((res) => {
             if (res.added === "ok") {
               this.showLoading = false;
               this.message.content = "评论发布成功~";
@@ -272,32 +277,37 @@ export default {
               this.displayMessage();
               this.content = "";
             }
-          }
-        );
-      } else if (this.comment.operate === "reply") {
-        addCommentReply(
-          this.reply.commentId,
-          this.author,
-          this.email,
-          this.content
-        ).then((res) => {
-          if (res.added === "ok") {
-            this.showLoading = false;
-            this.message.content = "评论发布成功~";
-            this.$store.dispatch("requestCommentsByArticleId", this.article_id);
-            this.displayMessage();
-            this.content = "";
-            this.$store.commit("PostComment", {
-              operate: "add",
-              replyId: null,
-              commentId: null,
-              commentAuthor: null,
-              commentContent: null,
-            });
-          }
-        });
-      }
-    }, 1000),
+          });
+        } else if (this.comment.operate === "reply") {
+          addCommentReply(
+            this.reply.commentId,
+            this.author,
+            this.email,
+            this.content
+          ).then((res) => {
+            if (res.added === "ok") {
+              this.showLoading = false;
+              this.message.content = "评论发布成功~";
+              this.$store.dispatch(
+                "requestCommentsByArticleId",
+                this.article_id
+              );
+              this.displayMessage();
+              this.content = "";
+              this.$store.commit("PostComment", {
+                operate: "add",
+                replyId: null,
+                commentId: null,
+                commentAuthor: null,
+                commentContent: null,
+              });
+            }
+          });
+        }
+      },
+      1000,
+      { leading: true }
+    ),
   },
 };
 </script>

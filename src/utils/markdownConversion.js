@@ -2,11 +2,12 @@ import emoji from "markdown-it-emoji";
 import anchor from "markdown-it-anchor";
 import toc from "markdown-it-toc-done-right";
 import hljs from "highlight.js";
+import { copy } from "./copyCode";
 
 var md = require("markdown-it")({
   html: true,
   typographer: true,
-  highlight: function (str, lang) {
+  highlight: function(str, lang) {
     if (lang && hljs.getLanguage(lang)) {
       try {
         return (
@@ -14,7 +15,7 @@ var md = require("markdown-it")({
           hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
           "</code></pre>"
         );
-      } catch (__) {}
+      } catch (__) { }
     }
 
     return (
@@ -23,7 +24,7 @@ var md = require("markdown-it")({
   },
 });
 
-md.use(emoji).use(anchor, {}).use(toc, {});
+md.use(emoji).use(anchor, {}).use(toc, {}).use(copy, {});
 
 export function markdownToHtml(markdownContent) {
   return md.render(markdownContent);
