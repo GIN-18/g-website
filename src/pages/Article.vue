@@ -84,5 +84,5 @@ export default {
 <style lang="css">
 /* 引入文章样式 */
 @import "@/assets/style/article/markdown.css";
-@import "@catppuccin/highlightjs/css/catppuccin-frappe.css";
+@import "@catppuccin/highlightjs/css/catppuccin.variables.css";
 </style>
